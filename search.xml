@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>hexo基本知识</title>
+    <url>/2021/03/30/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h1><p>npm install hexo -g #安装Hexo<br>npm update hexo -g #升级<br>hexo init #初始化博客</p>
+<span id="more"></span>
+<p>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo g == hexo generate #生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy #部署</p>
+<p>hexo server #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP<br>hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令</p>
+<h1 id="多个tag"><a href="#多个tag" class="headerlink" title="多个tag"></a>多个tag</h1><p><code>tags: [&quot;aaa&quot;,&quot;bbb&quot;,&quot;ccc&quot;]</code></p>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Ch2 变量与基本内置类型</title>
+    <url>/2021/03/30/c++/cpp_ch2_%E5%8F%98%E9%87%8F%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="基本内置类型"><a href="#基本内置类型" class="headerlink" title="基本内置类型"></a>基本内置类型</h1><h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><p><code>bool, char, wchar_t, char16_t, char32_t, short, int, long,  long long, float, double, long double</code></p>
+<span id="more"></span>
+<h2 id="字面值"><a href="#字面值" class="headerlink" title="字面值"></a>字面值</h2><p><strong>①整型字面值</strong><br>十进制 <code>20</code>     八进制  <code>020</code>    十六进制<code>0x20 0X20</code><br>十进制字面值的默认类型是<code>int long longlong</code>中能容纳的，且位数最少的，比如2为<code>int</code>，2^17为<code>long</code><br><strong>②浮点数字面值</strong>：默认为<code>double</code><br><strong>③字符字面值</strong>：默认为<code>char</code>，如<code>&#39;a&#39;</code>；字符串为<code>char</code>的数组，如<code>&quot;ab&quot;</code><br><strong>④布尔字面值</strong>：<code>true</code>和<code>false</code><br><strong>⑤指针字面值</strong>：<code>nullptr</code><br><strong>⑥转义序列：</strong></p>
+<table>
+<thead>
+<tr>
+<th>column0</th>
+<th>column1</th>
+<th>column2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>换行符：<code>\n</code></td>
+<td>横向制表符：<code>\t</code></td>
+<td>纵向制表符：<code>\v</code></td>
+</tr>
+<tr>
+<td>退格符：<code>\b</code></td>
+<td>回车符：<code>\r</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>用法</strong>：<code>std::cout&lt;&lt;&quot;Hello!&quot;&lt;&lt;&#39;\n&#39;;</code><br><strong>通过添加前缀，后缀可以指定（改变）字面值的类型</strong></p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p><font color=#FF0000>初始化与赋值不同，初始化是创建变量时给定一个值，赋值是消去原有值并给定新值</font></p>
+<h2 id="列表初始化（C-11新特性）"><a href="#列表初始化（C-11新特性）" class="headerlink" title="列表初始化（C++11新特性）"></a>列表初始化（C++11新特性）</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以下都是正确的</span></span><br><span class="line"><span class="keyword">int</span> units_sold = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> units_sold = &#123;<span class="number">0</span>&#125; ;</span><br><span class="line"><span class="keyword">int</span> units_sold&#123;<span class="number">0</span>&#125; ;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">units_sold</span><span class="params">(<span class="number">0</span>)</span> </span>;</span><br></pre></td></tr></table></figure>
+<p>对内置类型变量用列表初始化时，<strong>如果存在丢失数据的可能，则编译器报错</strong>，比如:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">double</span> <span class="number">1</span>d = <span class="number">3.1415926536</span>;</span><br><span class="line"><span class="keyword">int</span> a&#123;ld&#125;, b = &#123;ld&#125;; <span class="comment">// 错误:转换未执行，因为存在丢失信息的危险</span></span><br><span class="line">int c(ld)， d = ld;  //正确:转换执行，且确实丢失了部分值</span><br></pre></td></tr></table></figure>
+<h2 id="默认初始化："><a href="#默认初始化：" class="headerlink" title="默认初始化："></a>默认初始化：</h2><p>①对于<strong>内置基本类型</strong>：函数体外默认为0，函数体内不作初始化（访问或拷贝将出错）<br>②<strong>自定义类</strong>的默认初始化行为自定义（如<code>string</code>默认初始化为空串）<br>例子：<code>double a=b=3.14   //b未定义，若b已定义，则最终a=b</code><br><font color=#FF0000>使用未初始化变量可能造成程序错误，甚至时对时错，因而最好初始化每个变量</font></p>
+<h2 id="声明与定义："><a href="#声明与定义：" class="headerlink" title="声明与定义："></a>声明与定义：</h2><p>当一个程序要使用其他地方（.h）的名字时，要进行声明（比如用某个头文件里的变量名字a）。<br><strong>声明与定义的差异</strong>：<br>（1）变量在所有相关文件中只能定义一次，可以声明无数次（某个程序要用到其他地方的变量则需要声明）；<br>（2）声明规定了变量的类型和名字，而定义还额外申请存储空间，给定一个初始值<br><strong>关键字</strong><code>extern</code>：<br><code>extern int a; //只声明不定义</code><br>若写成<code>extern int a=10</code>，则<code>extern</code>失效<br><font color=#FF0000>函数体内初始化一个extern标记的变量会出错</font></p>
+<h2 id="变量的作用域："><a href="#变量的作用域：" class="headerlink" title="变量的作用域："></a>变量的作用域：</h2><p>最好在使用变量的时候定义它<br>作用域中一旦声明了某个名字，它所嵌套着的所有作用域中都能访问该名字。同时，允许在内层作用域中重新定义外层作用域已有的名字:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">//该程序仅用于说明:函数内部不宜定义与全局变量同名的新变量</span></span><br><span class="line"><span class="keyword">int</span> reused = <span class="number">42</span>; <span class="comment">// reused 拥有全局作用域</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> unique = <span class="number">0</span>; <span class="comment">// unique 拥有块作用域</span></span><br><span class="line"><span class="comment">//输出#1:使用全局变量reused;输出42 0</span></span><br><span class="line">    std::cout &lt;&lt; reused &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; unique &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">int</span> reused = <span class="number">0</span>; <span class="comment">// 新建局部变量reused,覆盖了全局变量reused</span></span><br><span class="line"><span class="comment">//输出#2:使用局部变量reused;输出0 0</span></span><br><span class="line">    std::cout &lt;&lt; reused &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; unique &lt;&lt; std::endl;</span><br><span class="line"><span class="comment">//输出#3:显式地访问全局变量reused;输出42 0</span></span><br><span class="line">    std::cout &lt;&lt; ::reused &lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt; unique &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>::reused</code>可以覆盖局部变量，直接访问全局变量</p>
+]]></content>
+      <categories>
+        <category>c++</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>变量</tag>
+        <tag>基本内置类型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Ch1 入门</title>
+    <url>/2021/03/30/c++/cpp_ch1_%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<p>输入一系列数据时，可使用</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(std::cin&gt;&gt;value)</span><br></pre></td></tr></table></figure>
+<p>当输入文件结束符时，语句</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">std::cin&gt;&gt;value</span><br></pre></td></tr></table></figure>
+<p>的值为0，从而退出循环<br>文件结束符：<em>windows</em>  <code>ctrl+Z</code>    <em>unix</em>  <code>ctrl+D</code></p>
+]]></content>
+      <categories>
+        <category>c++</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+</search>
