@@ -17,6 +17,51 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ Ch12 动态内存与智能指针</title>
+    <url>/2021/04/01/c++/cpp-ch12-%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E4%B8%8E%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<p><strong>静态内存</strong>：保存局部static变量、类static变量和在函数体外定义的变量<br><strong>栈内存</strong>：保存定义在函数体内的非static变量<br>分配在静态内存和栈内存中的对象由<font color="red">编译器自动创建或销毁</font>；栈对象仅在程序块运行时存在；static在程序结束时销毁</p>
+<p>此外，每个程序还拥有一个内存池（堆内存）用于<font color="red">动态分配</font>的对象；这类对象的生存周期由程序控制，即需要代码显示销毁<br> <span id="more"></span></p>
+<h1 id="动态内存与智能指针"><a href="#动态内存与智能指针" class="headerlink" title="动态内存与智能指针"></a>动态内存与智能指针</h1><p> <strong>动态内存</strong>的管理时通过<font color="red">运算符</font><code>new</code>和<code>delete</code>完成的，<code>new</code>在对象在动态内存中分配空间并返回一个指向该对象的指针，<code>delete</code>接受一个指向动态对象的指针并销毁该对象，释放关联的内存<br> 忘记释放内存就会造成<font color="red">内存泄漏</font></p>
+<p> <strong>智能指针</strong>用于安全地使用动态内存，可以自动释放所指向的对象；<code>shared_ptr</code>允许多个指针指向同一个对象、<code>unqiue_ptr</code>独占指向的对象、<code>weak_ptr</code>是一种弱引用，指向<code>shared_ptr</code>管理的对象<br> 智能指针在头文件<code>&lt;memory&gt;</code>中</p>
+<h2 id="shared-ptr类"><a href="#shared-ptr类" class="headerlink" title="shared_ptr类"></a>shared_ptr类</h2><p>shared_ptr是一个模板类，定义时要在尖括号里给出指向对象的类型</p>
+<p><strong>shared_ptr与unqiue_ptr都支持的操作</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">shared_ptr&lt;T&gt; sp;   <span class="comment">//默认初始化，包含一个空指针</span></span><br><span class="line">unique_ptr&lt;T&gt; up;</span><br><span class="line">p;  <span class="comment">//用作条件判断，有指向的对象就为true</span></span><br><span class="line">*p;  <span class="comment">//解引用；</span></span><br><span class="line">p-&gt;mem;  </span><br><span class="line">p.<span class="built_in">get</span>();  <span class="comment">//返回p中保存的指针</span></span><br><span class="line"><span class="built_in">swap</span>(p,q);  <span class="comment">//交换包含的指针</span></span><br><span class="line">p.<span class="built_in">swap</span>(q);</span><br></pre></td></tr></table></figure>
+<p><strong>shared_ptr独有的操作</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">make_shared&lt;T&gt;(args);  <span class="comment">//返回一个动态分配的、类型为T的对象的智能指针，对象用args初始化</span></span><br><span class="line"><span class="function">shared_ptr&lt;T&gt; <span class="title">p</span><span class="params">(q)</span></span>;  <span class="comment">//拷贝初始化，q中的计数器会递增。q中的指针必须能转换为T*</span></span><br><span class="line">p=q;  <span class="comment">//p与q都必须是shared_ptr,且保存的指针能相互转换。</span></span><br><span class="line">      <span class="comment">//此操作会递减p的计数器并递增q的计数器，如果p的计数器为0，则释放</span></span><br><span class="line">p.<span class="built_in">unqiue</span>();  <span class="comment">//若p.use_count() == 1，则返回true，否则false</span></span><br><span class="line">p.<span class="built_in">use_count</span>(); <span class="comment">//返回与p共享对象的智能指针数量，可能很慢</span></span><br></pre></td></tr></table></figure>
+<h3 id="make-shared函数"><a href="#make-shared函数" class="headerlink" title="make_shared函数"></a>make_shared函数</h3><p>这是分配和使用动态内存最安全的方法，注意该函数也要<strong>传入创建对象的类型</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//make_shared&lt;T&gt;(args)</span></span><br><span class="line">shared_ptr&lt;<span class="keyword">int</span>&gt; int_p = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">42</span>); <span class="comment">//int_p指向值为42的int</span></span><br><span class="line">shared_ptr&lt;string&gt; str_p = make_shared&lt;string&gt;(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>)  <span class="comment">//str_p指向值为&quot;aaa&quot;的字符串</span></span><br></pre></td></tr></table></figure>
+<p>args即指向对象类型的构造函数参数列表，不传递参数则进行<strong>值初始化</strong></p>
+<p>可以用auto定义一个对象保存<code>make_shared</code>的返回值</p>
+<h3 id="shared-ptr的拷贝和赋值"><a href="#shared-ptr的拷贝和赋值" class="headerlink" title="shared_ptr的拷贝和赋值"></a>shared_ptr的拷贝和赋值</h3><p>进行拷贝和赋值操作时，每个<code>shared_ptr</code>都会记录有多少个其他<code>shared_ptr</code>指向相同的对象<br>每个<code>shared_ptr</code>都有一个引用计数，当1) 用一个<code>shared_ptr</code>初始化另一个 2) 作为参数传递给函数 3) 作为函数的返回值 时，计数都会<strong>递增</strong>。当某个<code>shared_ptr</code>被赋予新值或者被销毁，计数就会<strong>递减</strong></p>
+<h3 id="shared-ptr的自动销毁"><a href="#shared-ptr的自动销毁" class="headerlink" title="shared_ptr的自动销毁"></a>shared_ptr的自动销毁</h3><p>当指向对象的最后一个<code>shared_ptr</code>被销毁时（引用计数为0），<code>shared_ptr</code>类就会自动销毁此对象（通过调用<strong>析构函数</strong>）</p>
+<p>对于一块内存，只要有一个<code>shared_ptr</code>对象引用它，该内存就不会被释放。如果<code>shared_ptr</code>无用且未销毁，则会浪费内存。</p>
+<h3 id="程序为何使用动态内存？"><a href="#程序为何使用动态内存？" class="headerlink" title="程序为何使用动态内存？"></a>程序为何使用动态内存？</h3><p>a) 程序不知道自己要使用多少对象<br>b) 程序不知道自己所需对象的准确类型<br>c) 程序需要在多个对象间共享数据</p>
+]]></content>
+      <categories>
+        <category>c++</category>
+      </categories>
+      <tags>
+        <tag>动态内存</tag>
+        <tag>智能指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ Ch1 入门</title>
+    <url>/2021/03/30/c++/cpp_ch1_%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<p>输入一系列数据时，可使用</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(std::cin&gt;&gt;value)</span><br></pre></td></tr></table></figure>
+<p>当输入文件结束符时，语句</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">std::cin&gt;&gt;value</span><br></pre></td></tr></table></figure>
+<p>的值为0，从而退出循环<br>文件结束符：<em>windows</em>  <code>ctrl+Z</code>    <em>unix</em>  <code>ctrl+D</code></p>
+]]></content>
+      <categories>
+        <category>c++</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Ch2 变量与基本内置类型</title>
     <url>/2021/03/30/c++/cpp_ch2_%E5%8F%98%E9%87%8F%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="基本内置类型"><a href="#基本内置类型" class="headerlink" title="基本内置类型"></a>基本内置类型</h1><h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><p><code>bool, char, wchar_t, char16_t, char32_t, short, int, long,  long long, float, double, long double</code></p>
@@ -106,51 +151,6 @@
         <tag>c++</tag>
         <tag>变量</tag>
         <tag>基本内置类型</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Ch1 入门</title>
-    <url>/2021/03/30/c++/cpp_ch1_%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>输入一系列数据时，可使用</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(std::cin&gt;&gt;value)</span><br></pre></td></tr></table></figure>
-<p>当输入文件结束符时，语句</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">std::cin&gt;&gt;value</span><br></pre></td></tr></table></figure>
-<p>的值为0，从而退出循环<br>文件结束符：<em>windows</em>  <code>ctrl+Z</code>    <em>unix</em>  <code>ctrl+D</code></p>
-]]></content>
-      <categories>
-        <category>c++</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ Ch12 动态内存与智能指针</title>
-    <url>/2021/04/01/c++/cpp-ch12-%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E4%B8%8E%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<p><strong>静态内存</strong>：保存局部static变量、类static变量和在函数体外定义的变量<br><strong>栈内存</strong>：保存定义在函数体内的非static变量<br>分配在静态内存和栈内存中的对象由<font color="red">编译器自动创建或销毁</font>；栈对象仅在程序块运行时存在；static在程序结束时销毁</p>
-<p>此外，每个程序还拥有一个内存池（堆内存）用于<font color="red">动态分配</font>的对象；这类对象的生存周期由程序控制，即需要代码显示销毁<br> <span id="more"></span></p>
-<h1 id="动态内存与智能指针"><a href="#动态内存与智能指针" class="headerlink" title="动态内存与智能指针"></a>动态内存与智能指针</h1><p> <strong>动态内存</strong>的管理时通过<font color="red">运算符</font><code>new</code>和<code>delete</code>完成的，<code>new</code>在对象在动态内存中分配空间并返回一个指向该对象的指针，<code>delete</code>接受一个指向动态对象的指针并销毁该对象，释放关联的内存<br> 忘记释放内存就会造成<font color="red">内存泄漏</font></p>
-<p> <strong>智能指针</strong>用于安全地使用动态内存，可以自动释放所指向的对象；<code>shared_ptr</code>允许多个指针指向同一个对象、<code>unqiue_ptr</code>独占指向的对象、<code>weak_ptr</code>是一种弱引用，指向<code>shared_ptr</code>管理的对象<br> 智能指针在头文件<code>&lt;memory&gt;</code>中</p>
-<h2 id="shared-ptr类"><a href="#shared-ptr类" class="headerlink" title="shared_ptr类"></a>shared_ptr类</h2><p>shared_ptr是一个模板类，定义时要在尖括号里给出指向对象的类型</p>
-<p><strong>shared_ptr与unqiue_ptr都支持的操作</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">shared_ptr&lt;T&gt; sp;   <span class="comment">//默认初始化，包含一个空指针</span></span><br><span class="line">unique_ptr&lt;T&gt; up;</span><br><span class="line">p;  <span class="comment">//用作条件判断，有指向的对象就为true</span></span><br><span class="line">*p;  <span class="comment">//解引用；</span></span><br><span class="line">p-&gt;mem;  </span><br><span class="line">p.<span class="built_in">get</span>();  <span class="comment">//返回p中保存的指针</span></span><br><span class="line"><span class="built_in">swap</span>(p,q);  <span class="comment">//交换包含的指针</span></span><br><span class="line">p.<span class="built_in">swap</span>(q);</span><br></pre></td></tr></table></figure>
-<p><strong>shared_ptr独有的操作</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">make_shared&lt;T&gt;(args);  <span class="comment">//返回一个动态分配的、类型为T的对象的智能指针，对象用args初始化</span></span><br><span class="line"><span class="function">shared_ptr&lt;T&gt; <span class="title">p</span><span class="params">(q)</span></span>;  <span class="comment">//拷贝初始化，q中的计数器会递增。q中的指针必须能转换为T*</span></span><br><span class="line">p=q;  <span class="comment">//p与q都必须是shared_ptr,且保存的指针能相互转换。</span></span><br><span class="line">      <span class="comment">//此操作会递减p的计数器并递增q的计数器，如果p的计数器为0，则释放</span></span><br><span class="line">p.<span class="built_in">unqiue</span>();  <span class="comment">//若p.use_count() == 1，则返回true，否则false</span></span><br><span class="line">p.<span class="built_in">use_count</span>(); <span class="comment">//返回与p共享对象的智能指针数量，可能很慢</span></span><br></pre></td></tr></table></figure>
-<h3 id="make-shared函数"><a href="#make-shared函数" class="headerlink" title="make_shared函数"></a>make_shared函数</h3><p>这是分配和使用动态内存最安全的方法，注意该函数也要<strong>传入创建对象的类型</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//make_shared&lt;T&gt;(args)</span></span><br><span class="line">shared_ptr&lt;<span class="keyword">int</span>&gt; int_p = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">42</span>); <span class="comment">//int_p指向值为42的int</span></span><br><span class="line">shared_ptr&lt;string&gt; str_p = make_shared&lt;string&gt;(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>)  <span class="comment">//str_p指向值为&quot;aaa&quot;的字符串</span></span><br></pre></td></tr></table></figure>
-<p>args即指向对象类型的构造函数参数列表，不传递参数则进行<strong>值初始化</strong></p>
-<p>可以用auto定义一个对象保存<code>make_shared</code>的返回值</p>
-<h3 id="shared-ptr的拷贝和赋值"><a href="#shared-ptr的拷贝和赋值" class="headerlink" title="shared_ptr的拷贝和赋值"></a>shared_ptr的拷贝和赋值</h3><p>进行拷贝和赋值操作时，每个<code>shared_ptr</code>都会记录有多少个其他<code>shared_ptr</code>指向相同的对象<br>每个<code>shared_ptr</code>都有一个引用计数，当1) 用一个<code>shared_ptr</code>初始化另一个 2) 作为参数传递给函数 3) 作为函数的返回值 时，计数都会<strong>递增</strong>。当某个<code>shared_ptr</code>被赋予新值或者被销毁，计数就会<strong>递减</strong></p>
-<h3 id="shared-ptr的自动销毁"><a href="#shared-ptr的自动销毁" class="headerlink" title="shared_ptr的自动销毁"></a>shared_ptr的自动销毁</h3><p>当指向对象的最后一个<code>shared_ptr</code>被销毁时（引用计数为0），<code>shared_ptr</code>类就会自动销毁此对象（通过调用<strong>析构函数</strong>）</p>
-<p>对于一块内存，只要有一个<code>shared_ptr</code>对象引用它，该内存就不会被释放。如果<code>shared_ptr</code>无用且未销毁，则会浪费内存。</p>
-<h3 id="程序为何使用动态内存？"><a href="#程序为何使用动态内存？" class="headerlink" title="程序为何使用动态内存？"></a>程序为何使用动态内存？</h3><p>a) 程序不知道自己要使用多少对象<br>b) 程序不知道自己所需对象的准确类型<br>c) 程序需要在多个对象间共享数据</p>
-]]></content>
-      <categories>
-        <category>c++</category>
-      </categories>
-      <tags>
-        <tag>动态内存</tag>
-        <tag>智能指针</tag>
       </tags>
   </entry>
 </search>
