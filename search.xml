@@ -158,4 +158,170 @@
         <tag>基本内置类型</tag>
       </tags>
   </entry>
+  <entry>
+    <title>html 简介</title>
+    <url>/2021/04/01/html/html-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p>HTML 是用来描述网页的一种语言。<br>HTML 不是一种编程语言，而是一种标记语言<br>HTML 使用标记标签来描述网页<br>HTML文档也叫做 web 页面</p>
+<span id="more"></span>
+<h1 id="一个实际例子"><a href="#一个实际例子" class="headerlink" title="一个实际例子"></a>一个实际例子</h1><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我的第一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我的第一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="例子解析"><a href="#例子解析" class="headerlink" title="例子解析"></a>例子解析</h2><p><code>&lt;!DOCTYPE html&gt;</code> 声明为 HTML5 文档<br><code>&lt;html&gt;</code> 元素是 HTML 页面的根元素<br><code>&lt;head&gt;</code> 元素包含了文档的元（meta）数据，如 <code>&lt;meta charset=&quot;utf-8&quot;&gt;</code> 定义网页编码格式为 utf-8。<br><code>&lt;title&gt;</code> 元素描述了文档的标题<br><code>&lt;body&gt;</code> 元素包含了可见的页面内容<br><code>&lt;h1&gt;</code> 元素定义一个大标题<br><code>&lt;p&gt;</code> 元素定义一个段落</p>
+<h1 id="lt-DOCTYPE-gt-声明"><a href="#lt-DOCTYPE-gt-声明" class="headerlink" title="&lt;!DOCTYPE&gt; 声明"></a>&lt;!DOCTYPE&gt; 声明</h1><p><code>&lt;!DOCTYPE&gt;</code>声明有助于浏览器中正确显示网页。<br>网络上有很多不同的文件，如果能够正确声明HTML的版本，浏览器就能正确显示网页内容。<br>doctype声明是不区分大小写的，以下方式均可<br><strong>html5</strong>的通用声明：<code>&lt;!DOCTYPE html&gt;</code></p>
+<h1 id="中文编码"><a href="#中文编码" class="headerlink" title="中文编码"></a>中文编码</h1><p>目前在大部分浏览器中，直接输出中文会出现中文乱码的情况，这时候我们就需要在头部将字符声明为 <strong>UTF-8</strong> 或 <strong>GBK</strong>。<br>在<code>&lt;head&gt;</code>下一行声明<code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></p>
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 基础1</title>
+    <url>/2021/04/01/html/html-%E5%9F%BA%E7%A1%801/</url>
+    <content><![CDATA[<h1 id="html标题"><a href="#html标题" class="headerlink" title="html标题"></a>html标题</h1><p>HTML 标题（Heading）是通过<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> 标签来定义的<br><strong>例子</strong>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>这是一个标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h1 id="html段落"><a href="#html段落" class="headerlink" title="html段落"></a>html段落</h1><p>HTML 段落是通过标签 <code>&lt;p&gt;</code> 来定义的</p>
+<p>在一个段落标签里换行：<code>&lt;p&gt;这个&lt;br&gt;段落&lt;br&gt;演示了分行的效果&lt;/p&gt;</code></p>
+<p>当显示页面时，浏览器会移除源代码中多余的空格和空行。<strong>所有连续的空格或空行都会被算作一个空格</strong>。需要注意的是，HTML 代码中的所有连续的空行（换行）也被显示为一个空格。</p>
+<h1 id="html链接"><a href="#html链接" class="headerlink" title="html链接"></a>html链接</h1><p>HTML 链接是通过标签 <code>&lt;a&gt;</code> 来定义的<br><strong>例子</strong>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.runoob.com&quot;</span>&gt;</span>这是一个链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 href 属性中指定链接的地址</p>
+<h1 id="html图像"><a href="#html图像" class="headerlink" title="html图像"></a>html图像</h1><p>HTML 图像是通过标签 <code>&lt;img&gt;</code> 来定义的</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">loading</span>=<span class="string">&quot;lazy&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/images/logo.png&quot;</span> <span class="attr">width</span>=<span class="string">&quot;258&quot;</span> <span class="attr">height</span>=<span class="string">&quot;39&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>图像的名称和尺寸是以属性的形式提供的</p>
+<h1 id="html元素"><a href="#html元素" class="headerlink" title="html元素"></a>html元素</h1><p>起始标签、标签内容和闭合标签构成一个<strong>html元素</strong>，html文档由html元素定义</p>
+<p>html允许<strong>元素嵌套</strong></p>
+<p><code>&lt;body&gt;</code> 元素定义了 HTML 文档的主体</p>
+<p>HTML 标签对大小写不敏感</p>
+<h1 id="html属性"><a href="#html属性" class="headerlink" title="html属性"></a>html属性</h1><p>属性可以在元素中添加附加信息<br>属性一般描述于开始标签<br>属性总是以名称/值对的形式出现，比如：name=”value”</p>
+<p>属性值应该始终被包括在引号内。<br>双引号是最常用的，不过使用单引号也没有问题。<br>在某些个别的情况下，比如属性值本身就含有双引号，那么您必须使用单引号，例如：name=’John “ShotGun” Nelson’</p>
+<h1 id="html注释"><a href="#html注释" class="headerlink" title="html注释"></a>html注释</h1><p>格式：<code>&lt;!-- 这是一个注释 --&gt;</code></p>
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 基础2</title>
+    <url>/2021/04/02/html/html-%E5%9F%BA%E7%A1%802/</url>
+    <content><![CDATA[<h1 id="文本格式化"><a href="#文本格式化" class="headerlink" title="文本格式化"></a>文本格式化</h1><h2 id="html-文本格式化标签"><a href="#html-文本格式化标签" class="headerlink" title="html 文本格式化标签"></a>html 文本格式化标签</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;b&gt;</code></td>
+<td>定义粗体文本</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>定义着重文字</td>
+</tr>
+<tr>
+<td><code>&lt;i&gt;</code></td>
+<td>定义斜体字</td>
+</tr>
+<tr>
+<td><code>&lt;small&gt;</code></td>
+<td>定义小号字</td>
+</tr>
+<tr>
+<td><code>&lt;strong&gt;</code></td>
+<td>定义加重语气</td>
+</tr>
+<tr>
+<td><code>&lt;sub&gt;</code></td>
+<td>定义下标字</td>
+</tr>
+<tr>
+<td><code>&lt;sup&gt;</code></td>
+<td>定义上标字</td>
+</tr>
+<tr>
+<td><code>&lt;ins&gt;</code></td>
+<td>定义插入字</td>
+</tr>
+<tr>
+<td><code>&lt;del&gt;</code></td>
+<td>定义删除字</td>
+</tr>
+</tbody></table>
+<p>通常标签 <code>&lt;strong&gt;</code> 替换加粗标签 <code>&lt;b&gt;</code> 来使用, <code>&lt;em&gt;</code> 替换 <code>&lt;i&gt;</code>标签使用。</p>
+<h2 id="html-“计算机输出”-标签"><a href="#html-“计算机输出”-标签" class="headerlink" title="html “计算机输出” 标签"></a>html “计算机输出” 标签</h2><table>
+<thead>
+<tr>
+<th>标签</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;code&gt;</code></td>
+<td>定义计算机代码</td>
+</tr>
+<tr>
+<td><code>&lt;kbd&gt;</code></td>
+<td>定义键盘码</td>
+</tr>
+<tr>
+<td><code>&lt;samp&gt;</code></td>
+<td>定义计算机代码样本</td>
+</tr>
+<tr>
+<td><code>&lt;var&gt;</code></td>
+<td>定义变量</td>
+</tr>
+<tr>
+<td><code>&lt;pre&gt;</code></td>
+<td>定义预格式文本</td>
+</tr>
+</tbody></table>
+<h1 id="html链接"><a href="#html链接" class="headerlink" title="html链接"></a>html链接</h1><p>超链接可以是一个字，一个词，或者一组词，也可以是一幅图像，可以点击这些内容来跳转到新的文档或者当前文档中的某个部分。</p>
+<p>在标签<code>&lt;a&gt;</code> 中使用了href属性来描述链接的地址</p>
+<h2 id="链接语法"><a href="#链接语法" class="headerlink" title="链接语法"></a>链接语法</h2><p>//格式<br><code>&lt;a href=&quot;url&quot;&gt;链接文本&lt;/a&gt;</code><br>//例子<br><code>&lt;a href=&quot;https://www.runoob.com/&quot;&gt;访问菜鸟教程&lt;/a&gt;</code></p>
+<h2 id="target属性"><a href="#target属性" class="headerlink" title="target属性"></a>target属性</h2><p>使用 target 属性定义被链接的文档在何处显示</p>
+<p>例子：<br><code>&lt;a href=&quot;https://www.runoob.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;访问菜鸟教程!&lt;/a&gt;</code></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_blank</td>
+<td>在新窗口中打开被链接文档</td>
+</tr>
+<tr>
+<td>_self</td>
+<td>默认。在相同的框架中打开被链接文档</td>
+</tr>
+<tr>
+<td>_parent</td>
+<td>在父框架集中打开被链接文档</td>
+</tr>
+<tr>
+<td>_top</td>
+<td>在整个窗口中打开被链接文档</td>
+</tr>
+</tbody></table>
+<h2 id="id属性"><a href="#id属性" class="headerlink" title="id属性"></a>id属性</h2><p>id属性可用于创建在一个HTML文档书签标记</p>
+<p>书签是不以任何特殊的方式显示，在HTML文档中是不显示的，所以对于读者来说是隐藏的</p>
+<p>用法：<br>在HTML文档中插入ID:<br><code>&lt;a id=&quot;tips&quot;&gt;有用的提示部分&lt;/a&gt;</code></p>
+<p>在HTML文档中创建一个链接到  有用的提示部分(id=”tips”）：<br><code>&lt;a href=&quot;#tips&quot;&gt;访问有用的提示部分&lt;/a&gt;</code></p>
+<p>或者，从另一个页面创建一个链接到  有用的提示部分(id=”tips”）：</p>
+<p><code>&lt;a href=&quot;https://www.runoob.com/html/html-links.html#tips&quot;&gt; 访问有用的提示部分&lt;/a&gt;</code></p>
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
 </search>
