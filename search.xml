@@ -216,42 +216,43 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>&lt;b&gt;</code></td>
+<td>b</td>
 <td>定义粗体文本</td>
 </tr>
 <tr>
-<td><code>&lt;em&gt;</code></td>
+<td>em</td>
 <td>定义着重文字</td>
 </tr>
 <tr>
-<td><code>&lt;i&gt;</code></td>
+<td>i</td>
 <td>定义斜体字</td>
 </tr>
 <tr>
-<td><code>&lt;small&gt;</code></td>
+<td>small</td>
 <td>定义小号字</td>
 </tr>
 <tr>
-<td><code>&lt;strong&gt;</code></td>
+<td>strong</td>
 <td>定义加重语气</td>
 </tr>
 <tr>
-<td><code>&lt;sub&gt;</code></td>
+<td>sub</td>
 <td>定义下标字</td>
 </tr>
 <tr>
-<td><code>&lt;sup&gt;</code></td>
+<td>sup</td>
 <td>定义上标字</td>
 </tr>
 <tr>
-<td><code>&lt;ins&gt;</code></td>
+<td>ins</td>
 <td>定义插入字</td>
 </tr>
 <tr>
-<td><code>&lt;del&gt;</code></td>
+<td>del</td>
 <td>定义删除字</td>
 </tr>
 </tbody></table>
+<span id="more"></span>
 <p>通常标签 <code>&lt;strong&gt;</code> 替换加粗标签 <code>&lt;b&gt;</code> 来使用, <code>&lt;em&gt;</code> 替换 <code>&lt;i&gt;</code>标签使用。</p>
 <h2 id="html-“计算机输出”-标签"><a href="#html-“计算机输出”-标签" class="headerlink" title="html “计算机输出” 标签"></a>html “计算机输出” 标签</h2><table>
 <thead>
@@ -261,23 +262,23 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>&lt;code&gt;</code></td>
+<td>code</td>
 <td>定义计算机代码</td>
 </tr>
 <tr>
-<td><code>&lt;kbd&gt;</code></td>
+<td>kbd</td>
 <td>定义键盘码</td>
 </tr>
 <tr>
-<td><code>&lt;samp&gt;</code></td>
+<td>samp</td>
 <td>定义计算机代码样本</td>
 </tr>
 <tr>
-<td><code>&lt;var&gt;</code></td>
+<td>var</td>
 <td>定义变量</td>
 </tr>
 <tr>
-<td><code>&lt;pre&gt;</code></td>
+<td>pre</td>
 <td>定义预格式文本</td>
 </tr>
 </tbody></table>
@@ -314,8 +315,173 @@
 <p>书签是不以任何特殊的方式显示，在HTML文档中是不显示的，所以对于读者来说是隐藏的</p>
 <p>用法：<br>在HTML文档中插入ID:<br><code>&lt;a id=&quot;tips&quot;&gt;有用的提示部分&lt;/a&gt;</code></p>
 <p>在HTML文档中创建一个链接到  有用的提示部分(id=”tips”）：<br><code>&lt;a href=&quot;#tips&quot;&gt;访问有用的提示部分&lt;/a&gt;</code></p>
-<p>或者，从另一个页面创建一个链接到  有用的提示部分(id=”tips”）：</p>
-<p><code>&lt;a href=&quot;https://www.runoob.com/html/html-links.html#tips&quot;&gt; 访问有用的提示部分&lt;/a&gt;</code></p>
+<p>或者，从另一个页面创建一个链接到  有用的提示部分(id=”tips”）：<br><code>&lt;a href=&quot;https://www.runoob.com/html/html-links.html#tips&quot;&gt;访问有用的提示部分&lt;/a&gt;</code></p>
+<h1 id="html引用"><a href="#html引用" class="headerlink" title="html引用"></a>html引用</h1><p><strong>短引用</strong>：<code>&lt;q&gt;aaaaaaa&lt;/q&gt;</code><br><strong>长引用</strong>：<code>&lt;blockquote&gt;aaaaaaaaaaaaaaaaaa&lt;/blockquote&gt;</code></p>
+<p><strong>缩略词</strong>：对缩写进行标记能够为浏览器、翻译系统以及搜索引擎提供有用的信息<br><code>&lt;abbr title=&quot;World Health Organization&quot;&gt;WHO&lt;/abbr&gt;</code></p>
+<p><strong>地址</strong>：用于联系信息的 HTML <code>&lt;address&gt;</code>，通常以斜体显示</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span></span><br><span class="line">Written by Donald Duck.<span class="tag">&lt;<span class="name">br</span>&gt;</span> </span><br><span class="line">Visit us at:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">Example.com<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">Box 564, Disneyland<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">USA</span><br><span class="line"><span class="tag">&lt;/<span class="name">address</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>著作标题</strong>：HTML <code>&lt;cite&gt;</code> 元素定义著作的标题。浏览器通常会以斜体显示 <code>&lt;cite&gt;</code> 元素。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">cite</span>&gt;</span>The Scream<span class="tag">&lt;/<span class="name">cite</span>&gt;</span> by Edward Munch. Painted in 1893.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>双向重写</strong>：<code>&lt;bdo&gt;</code> 元素用于覆盖当前文本方向</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bdo</span> <span class="attr">dir</span>=<span class="string">&quot;rtl&quot;</span>&gt;</span>This text will be written from right to left<span class="tag">&lt;/<span class="name">bdo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="html颜色"><a href="#html颜色" class="headerlink" title="html颜色"></a>html颜色</h1><p>只有少数颜色能直接用颜色名：aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, yellow</p>
+<p>其他的颜色必须用#开始的16进制串</p>
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 基础3</title>
+    <url>/2021/04/02/html/html-%E5%9F%BA%E7%A1%803/</url>
+    <content><![CDATA[<h1 id="html-CSS"><a href="#html-CSS" class="headerlink" title="html CSS"></a>html CSS</h1><p>通过使用 HTML4.0，所有的格式化代码均可移出 HTML 文档，然后移入一个独立的样式表。</p>
+<span id="more"></span>
+<h2 id="如何使用样式"><a href="#如何使用样式" class="headerlink" title="如何使用样式"></a>如何使用样式</h2><p>当浏览器读到一个样式表，它就会按照这个样式表来对文档进行格式化。<br>有以下三种方式来插入样式表：</p>
+<h3 id="外部样式表"><a href="#外部样式表" class="headerlink" title="外部样式表"></a>外部样式表</h3><p>使用外部样式表，可以通过更改一个文件来改变整个站点的外观。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;mystyle.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="内部样式表"><a href="#内部样式表" class="headerlink" title="内部样式表"></a>内部样式表</h3><p>当单个文件需要特别样式时，就可以使用内部样式表。<br>可以在 head 部分通过 <code>&lt;style&gt;</code> 标签定义内部样式表。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span> &#123;<span class="attribute">background-color</span>: red&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span> &#123;<span class="attribute">margin-left</span>: <span class="number">20px</span>&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="内联样式"><a href="#内联样式" class="headerlink" title="内联样式"></a>内联样式</h3><p>当特殊的样式需要应用到个别元素时，就可以使用内联样式<br>使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color: red; margin-left: 20px&quot;</span>&gt;</span></span><br><span class="line">This is a paragraph</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="html表格"><a href="#html表格" class="headerlink" title="html表格"></a>html表格</h1><p>表格由 <code>&lt;table&gt;</code> 标签来定义。每个表格均有若干行（由 <code>&lt;tr&gt;</code> 标签定义），每行被分割为若干单元格（由 <code>&lt;td&gt;</code> 标签定义）。字母 td 指表格数据（table data），即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 1, cell 1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 1, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 2, cell 1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 2, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>显示：</p>
+<table border="1">
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>
+
+<h2 id="表格的边框属性"><a href="#表格的边框属性" class="headerlink" title="表格的边框属性"></a>表格的边框属性</h2><p>如果不定义边框属性，表格将不显示边框</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>Row 1, cell 1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>Row 1, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="表格的表头"><a href="#表格的表头" class="headerlink" title="表格的表头"></a>表格的表头</h2><p>表格的表头使用 th标签进行定义。<br>大多数浏览器会把表头显示为粗体居中的文本</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span>&gt;</span>Heading<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">th</span>&gt;</span>Another Heading<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 1, cell 1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 1, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 2, cell 1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 2, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="空单元格"><a href="#空单元格" class="headerlink" title="空单元格"></a>空单元格</h2><p>如果某个单元格是空的（没有内容），浏览器可能无法显示出这个单元格的边框<br>为了避免这种情况，在空单元格中添加一个<strong>空格占位符</strong>，就可以将边框显示出来</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 1, cell 1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 1, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span>  <span class="comment">&lt;!--空格占位符--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>row 2, cell 2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="html列表"><a href="#html列表" class="headerlink" title="html列表"></a>html列表</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><p>此列项目使用粗体圆点（典型的小黑圆圈）进行标记<br>无序列表始于 <code>&lt;ul&gt;</code> 标签。每个列表项始于 <code>&lt;li&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>Milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>列表项目使用数字进行标记<br>有序列表始于 <code>&lt;ol&gt;</code> 标签。每个列表项始于 <code>&lt;li&gt;</code> 标签。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>Milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="自定义列表"><a href="#自定义列表" class="headerlink" title="自定义列表"></a>自定义列表</h2><p>自定义列表以 <code>&lt;dl&gt;</code> 标签开始。每个自定义列表项以 <code>&lt;dt&gt;</code> 开始。每个自定义列表项的定义以 <code>&lt;dd&gt;</code> 开始</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dt</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dd</span>&gt;</span>Black hot drink<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dt</span>&gt;</span>Milk<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dd</span>&gt;</span>White cold drink<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<dl>
+<dt>Coffee</dt>
+<dd>Black hot drink</dd>
+<dt>Milk</dt>
+<dd>White cold drink</dd>
+</dl>
+
+<h1 id="html-块"><a href="#html-块" class="headerlink" title="html 块"></a>html 块</h1><h2 id="html块元素"><a href="#html块元素" class="headerlink" title="html块元素"></a>html块元素</h2><p>块级元素在浏览器显示时，<strong>通常会以新行来开始（和结束）</strong>，例如<code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;table&gt;</code></p>
+<h3 id="html-div"><a href="#html-div" class="headerlink" title="html div"></a>html div</h3><p><code>&lt;div&gt;</code> 可定义文档中的分区或节（division/section）。</p>
+<p><code>&lt;div&gt;</code> 标签可以把文档分割为独立的、不同的部分。它可以用作严格的组织工具，并且不使用任何格式与其关联。</p>
+<p>如果用 id 或 class 来标记 <code>&lt;div&gt;</code>，那么该标签的作用会变得更加有效。</p>
+<h2 id="html-内联元素"><a href="#html-内联元素" class="headerlink" title="html 内联元素"></a>html 内联元素</h2><p>内联元素在显示时通常不会以新行开始，例如<code>&lt;b&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code></p>
+<h3 id="html-span"><a href="#html-span" class="headerlink" title="html span"></a>html span</h3><p>HTML <code>&lt;span&gt;</code> 元素是内联元素，可用作文本的容器。</p>
+<p><code>&lt;span&gt;</code> 元素也没有特定的含义。</p>
+<p>当与 CSS 一同使用时，<code>&lt;span&gt;</code> 元素可用于为部分文本设置样式属性。</p>
+]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 类</title>
+    <url>/2021/04/02/html/html-%E7%B1%BB/</url>
+    <content><![CDATA[<h1 id="html-类"><a href="#html-类" class="headerlink" title="html 类"></a>html 类</h1><p>对 HTML 进行分类（设置类），使我们能够为元素的类定义 CSS 样式。<br>为相同的类设置相同的样式，或者为不同的类设置不同的样式。</p>
+<span id="more"></span>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="xml">.cities &#123;  <span class="comment">&lt;!--类定义--&gt;</span></span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>:black;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>:white;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>:<span class="number">20px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>:<span class="number">20px</span>;</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cities&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>London<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">London is the capital city of England. </span><br><span class="line">It is the most populous city in the United Kingdom, </span><br><span class="line">with a metropolitan area of over 13 million inhabitants.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="分类块级元素"><a href="#分类块级元素" class="headerlink" title="分类块级元素"></a>分类块级元素</h2><p>HTML <code>&lt;div&gt;</code> 元素是块级元素。它能够用作其他 HTML 元素的容器。</p>
+<p>设置 <code>&lt;div&gt;</code> 元素的类，使我们能够为相同的 <code>&lt;div&gt;</code> 元素设置相同的类</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">.cities &#123;</span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>:black;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>:white;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin</span>:<span class="number">20px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">padding</span>:<span class="number">20px</span>;</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cities&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>London<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>London is the capital city of England. </span><br><span class="line">It is the most populous city in the United Kingdom, </span><br><span class="line">with a metropolitan area of over 13 million inhabitants.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cities&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Paris<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Paris is the capital and most populous city of France.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cities&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Tokyo<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Tokyo is the capital of Japan, the center of the Greater Tokyo Area,</span><br><span class="line">and the most populous metropolitan area in the world.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="分类行内元素"><a href="#分类行内元素" class="headerlink" title="分类行内元素"></a>分类行内元素</h2><p>HTML <code>&lt;span&gt;</code> 元素是行内元素，能够用作文本的容器。</p>
+<p>设置 <code>&lt;span&gt;</code> 元素的类，能够为相同的 <code>&lt;span&gt;</code> 元素设置相同的样式。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">span</span><span class="selector-class">.red</span> &#123;<span class="attribute">color</span>:red;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;red&quot;</span>&gt;</span>Important<span class="tag">&lt;/<span class="name">span</span>&gt;</span> Heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 基础4</title>
+    <url>/2021/04/02/html/html-%E5%9F%BA%E7%A1%804/</url>
+    <content><![CDATA[<h1 id="html-id属性"><a href="#html-id属性" class="headerlink" title="html id属性"></a>html id属性</h1><p>HTML id 属性用于 为HTML 元素指定唯一的 id。<br>一个 HTML文档中不能存在多个有相同 id 的元素。</p>
+<span id="more"></span>
+<h2 id="使用id属性"><a href="#使用id属性" class="headerlink" title="使用id属性"></a>使用id属性</h2><p>id 属性用于指向样式表中的特定样式声明。JavaScript 也可使用它来访问和操作拥有特定 ID 的元素。</p>
+<p>id 的<strong>语法</strong>是：写一个井号 (#)，后跟一个 id 名称。然后，在花括号 {} 中定义 CSS 属性。</p>
+<p>下面的例子中有一个 <code>&lt;h1&gt;</code> 元素，它指向 id 名称 “myHeader”。这个 <code>&lt;h1&gt;</code> 元素将根据 head 部分中的 #myHeader 样式定义进行样式设置：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">#myHeader &#123;</span><br><span class="line"><span class="css">  <span class="attribute">background-color</span>: lightblue;</span></span><br><span class="line"><span class="css">  <span class="attribute">color</span>: black;</span></span><br><span class="line"><span class="css">  <span class="attribute">padding</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="css">  <span class="attribute">text-align</span>: center;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;myHeader&quot;</span>&gt;</span>My Header<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="与class的差异"><a href="#与class的差异" class="headerlink" title="与class的差异"></a>与class的差异</h2><p>同一个类名可以由多个 HTML 元素使用，而一个 id 名称只能由页面中的一个 HTML 元素使用</p>
+<h2 id="通过-ID-和链接实现-HTML-书签"><a href="#通过-ID-和链接实现-HTML-书签" class="headerlink" title="通过 ID 和链接实现 HTML 书签"></a>通过 ID 和链接实现 HTML 书签</h2><p>HTML 书签用于<strong>让读者跳转至网页的特定部分</strong>。</p>
+<p>要使用书签，您必须首先创建它，然后为它添加链接。</p>
+<p>然后，当单击链接时，页面将滚动到带有书签的位置。</p>
+<p>实现：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//创建书签</span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;C4&quot;</span>&gt;</span>第四章<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">//然后，在同一张页面中，向这个书签添加一个链接</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#C4&quot;</span>&gt;</span>跳转到第四章<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">//或者，在另一张页面中，添加指向这个书签的链接</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;html_demo.html#C4&quot;</span>&gt;</span>Jump to Chapter 4<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="在-JavaScript-中使用-id-属性"><a href="#在-JavaScript-中使用-id-属性" class="headerlink" title="在 JavaScript 中使用 id 属性"></a>在 JavaScript 中使用 id 属性</h2><p>JavaScript 也可以使用 id 属性为特定元素执行某些任务。</p>
+<p>JavaScript 可以使用 getElementById() 方法访问拥有特定 id 的元素：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">displayResult</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.getElementById(<span class="string">&quot;myHeader&quot;</span>).innerHTML = <span class="string">&quot;Have a nice day!&quot;</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="html-内联框架"><a href="#html-内联框架" class="headerlink" title="html 内联框架"></a>html 内联框架</h1><p>iframe 用于<strong>在网页内显示网页</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;URL&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> <span class="comment">&lt;!--URL 指向隔离页面的位置--&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Iframe-设置高度和宽度"><a href="#Iframe-设置高度和宽度" class="headerlink" title="Iframe 设置高度和宽度"></a>Iframe 设置高度和宽度</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;demo_iframe.htm&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>属性值的默认单位是像素，但也可以用<strong>百分比</strong>来设定（比如 “80%”）</p>
+<h2 id="Iframe-删除边框"><a href="#Iframe-删除边框" class="headerlink" title="Iframe 删除边框"></a>Iframe 删除边框</h2><p>frameborder 属性规定是否显示 iframe 周围的边框,设置属性值为 “0” 就可以移除边框</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;demo_iframe.htm&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;0&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-iframe-作为链接的目标"><a href="#使用-iframe-作为链接的目标" class="headerlink" title="使用 iframe 作为链接的目标"></a>使用 iframe 作为链接的目标</h2><p>iframe 可用作链接的目标（target）。</p>
+<p>链接的 target 属性必须引用 iframe 的 name 属性</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;demo_iframe.htm&quot;</span> <span class="attr">name</span>=<span class="string">&quot;iframe_a&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.w3school.com.cn&quot;</span> <span class="attr">target</span>=<span class="string">&quot;iframe_a&quot;</span>&gt;</span>W3School.com.cn<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="html-javascript"><a href="#html-javascript" class="headerlink" title="html javascript"></a>html javascript</h1><p>HTML <code>&lt;script&gt;</code> 标签用于定义客户端脚本（JavaScript）。</p>
+<p><code>&lt;script&gt;</code> 元素即可包含脚本语句，也可通过 src 属性指向外部脚本文件。</p>
+<p>JavaScript 的常见用途是图像处理、表单验证和内容的动态更改。</p>
+<p>HTML <code>&lt;noscript&gt;</code> 标签定义了替代内容，这些内容将显示给在浏览器中禁用了脚本或浏览器不支持脚本的用户</p>
+<h1 id="html-文件路径"><a href="#html-文件路径" class="headerlink" title="html 文件路径"></a>html 文件路径</h1><table>
+<thead>
+<tr>
+<th>路径</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;img src=&quot;picture.jpg&quot;&gt;</code></td>
+<td>picture.jpg 位于与当前网页相同的文件夹</td>
+</tr>
+<tr>
+<td><code>&lt;img src=&quot;images/picture.jpg&quot;&gt;</code></td>
+<td>picture.jpg 位于当前文件夹的 images 文件夹中</td>
+</tr>
+<tr>
+<td><code>&lt;img src=&quot;/images/picture.jpg&quot;&gt;</code></td>
+<td>picture.jpg 当前站点根目录的 images 文件夹中</td>
+</tr>
+<tr>
+<td><code>&lt;img src=&quot;../picture.jpg&quot;&gt;</code></td>
+<td>picture.jpg 位于当前文件夹的上一级文件夹中</td>
+</tr>
+</tbody></table>
+<h2 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h2><p>文件路径描述了网站文件夹结构中某个文件的位置。</p>
+<p>文件路径会在链接外部文件时被用到：网页、图像、样式表、JavaScript</p>
+<h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><p>给出完整的文件路径，比如src=”<a href="https://www.w3school.com.cn/images/picture.jpg&quot;">https://www.w3school.com.cn/images/picture.jpg&quot;</a></p>
+<h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><p>见表格</p>
 ]]></content>
       <categories>
         <category>html</category>
