@@ -490,4 +490,329 @@
         <tag>html</tag>
       </tags>
   </entry>
+  <entry>
+    <title>html 基础5</title>
+    <url>/2021/04/03/html/html-%E5%9F%BA%E7%A1%805/</url>
+    <content><![CDATA[<h1 id="HTML-头部元素"><a href="#HTML-头部元素" class="headerlink" title="HTML 头部元素"></a>HTML 头部元素</h1><h2 id="HTML-lt-head-gt-元素"><a href="#HTML-lt-head-gt-元素" class="headerlink" title="HTML &lt;head&gt; 元素"></a>HTML <code>&lt;head&gt;</code> 元素</h2><p>head 元素是所有头部元素的容器。</p>
+<p>以下标签都可以添加到 head 部分：<code>&lt;title&gt;</code>、<code>&lt;base&gt;</code>、<code>&lt;link&gt;</code>、<code>&lt;meta&gt;</code>、<code>&lt;script&gt;</code> 以及 <code>&lt;style&gt;</code></p>
+<span id="more"></span>
+<h2 id="HTML-title-元素"><a href="#HTML-title-元素" class="headerlink" title="HTML title  元素"></a>HTML title  元素</h2><p>title 标签定义文档的标题。<br>title 元素能够：定义浏览器工具栏中的标题;提供页面被添加到收藏夹时显示的标题;显示在搜索引擎结果中的页面标题</p>
+<h2 id="HTML-base-元素"><a href="#HTML-base-元素" class="headerlink" title="HTML base 元素"></a>HTML base 元素</h2><p>base 标签为页面上的所有链接规定默认地址或默认目标（target）：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;http://www.w3school.com.cn/images/&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML-link-元素"><a href="#HTML-link-元素" class="headerlink" title="HTML link 元素"></a>HTML link 元素</h2><p>link 标签定义文档与外部资源之间的关系。</p>
+<p>link 标签最常用于连接样式表：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;mystyle.css&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="HTML-style-元素"><a href="#HTML-style-元素" class="headerlink" title="HTML style 元素"></a>HTML style 元素</h2><p>style 标签用于为 HTML 文档定义样式信息。</p>
+<p>您可以在 style 元素内规定 HTML 元素在浏览器中呈现的样式：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span> &#123;<span class="attribute">background-color</span>:yellow&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">p</span> &#123;<span class="attribute">color</span>:blue&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="HTML-meta-元素"><a href="#HTML-meta-元素" class="headerlink" title="HTML meta 元素"></a>HTML meta 元素</h2><p>meta 标签提供关于 HTML 文档的元数据。元数据不会显示在页面上，但是对于机器是可读的。</p>
+<p>典型的情况是，meta 元素被用于规定页面的描述、关键词、文档的作者、最后修改时间以及其他元数据</p>
+<p>一些搜索引擎会利用 meta 元素的 name 和 content 属性来索引页面</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--下面的 meta 元素定义页面的描述--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Free Web tutorials on HTML, CSS, XML&quot;</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--下面的 meta 元素定义页面的关键词--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;HTML, CSS, XML&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="HTML-script-元素"><a href="#HTML-script-元素" class="headerlink" title="HTML script 元素"></a>HTML script 元素</h2><p>script 标签用于定义客户端脚本，比如 JavaScript</p>
+<h1 id="HTML-布局"><a href="#HTML-布局" class="headerlink" title="HTML 布局"></a>HTML 布局</h1><h2 id="使用-div-元素的-HTML-布局"><a href="#使用-div-元素的-HTML-布局" class="headerlink" title="使用 div 元素的 HTML 布局"></a>使用 div 元素的 HTML 布局</h2><p>div 元素常用作布局工具，因为能够轻松地通过 CSS 对其进行定位</p>
+<h2 id="使用-HTML5-的网站布局"><a href="#使用-HTML5-的网站布局" class="headerlink" title="使用 HTML5 的网站布局"></a>使用 HTML5 的网站布局</h2><p>HTML5 提供的新语义元素定义了网页的不同部分：</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>header</td>
+<td>定义文档或节的页眉</td>
+</tr>
+<tr>
+<td>nav</td>
+<td>定义导航链接的容器</td>
+</tr>
+<tr>
+<td>section</td>
+<td>定义文档中的节</td>
+</tr>
+<tr>
+<td>article</td>
+<td>定义独立的自包含文章</td>
+</tr>
+<tr>
+<td>aside</td>
+<td>定义内容之外的内容（比如侧栏）</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>定义文档或节的页脚</td>
+</tr>
+<tr>
+<td>details</td>
+<td>定义额外的细节</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>定义 details 元素的标题</td>
+</tr>
+</tbody></table>
+<h2 id="使用表格的-HTML-布局"><a href="#使用表格的-HTML-布局" class="headerlink" title="使用表格的 HTML 布局"></a>使用表格的 HTML 布局</h2><p>table 元素不是作为布局工具而设计的。</p>
+<p>table 元素的作用是显示表格化的数据。</p>
+<p>使用 table 元素能够取得布局效果，因为能够通过 CSS 设置表格元素的样式</p>
+<h1 id="HTML-响应式设计"><a href="#HTML-响应式设计" class="headerlink" title="HTML 响应式设计"></a>HTML 响应式设计</h1><p>响应式设计RWD能够以可变尺寸传递网页，对于平板和移动设备是必需的</p>
+<h2 id="使用-Bootstrap"><a href="#使用-Bootstrap" class="headerlink" title="使用 Bootstrap"></a>使用 Bootstrap</h2><p>使用现成的 CSS 框架。</p>
+<p>Bootstrap 是最流行的开发响应式 web 的 HTML, CSS, 和 JS 框架。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> </span></span><br><span class="line"><span class="tag">  <span class="attr">href</span>=<span class="string">&quot;http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;jumbotron&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>W3School Demo<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Resize this responsive page!<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>London<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>London is the capital city of England.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>It is the most populous city in the United Kingdom,</span><br><span class="line">    with a metropolitan area of over 13 million inhabitants.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Paris<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Paris is the capital and most populous city of France.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-md-4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Tokyo<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tokyo is the capital of Japan, the center of the Greater Tokyo Area,</span><br><span class="line">    and the most populous metropolitan area in the world.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 基础6</title>
+    <url>/2021/04/03/html/html-%E5%9F%BA%E7%A1%806/</url>
+    <content><![CDATA[<h1 id="HTML-计算机代码元素"><a href="#HTML-计算机代码元素" class="headerlink" title="HTML 计算机代码元素"></a>HTML 计算机代码元素</h1><p>HTML code 元素定义编程代码示例,不保留多余的空格和折行,如需解决该问题，必须在 pre 元素中包围代码</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Coding Example:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">code</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">var person = &#123;</span><br><span class="line">    firstName:&quot;Bill&quot;,</span><br><span class="line">    lastName:&quot;Gates&quot;,</span><br><span class="line">    age:50,</span><br><span class="line">    eyeColor:&quot;blue&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">code</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>HTML var 元素定义数学变量：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Einstein wrote:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">var</span>&gt;</span>E = m c<span class="tag">&lt;<span class="name">sup</span>&gt;</span>2<span class="tag">&lt;/<span class="name">sup</span>&gt;</span><span class="tag">&lt;/<span class="name">var</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Einstein wrote:</p>
+
+<p><var>E = m c<sup>2</sup></var></p>
+
+<h1 id="HTML5-语义元素"><a href="#HTML5-语义元素" class="headerlink" title="HTML5 语义元素"></a>HTML5 语义元素</h1><p>语义元素清楚地向浏览器和开发者描述其意义。</p>
+<p>非语义元素的例子：div 和 span - 无法提供关于其内容的信息。</p>
+<p>语义元素的例子：form、table 以及 img - 清晰地定义其内容。</p>
+<p>HTML5 提供了定义页面不同部分的新语义元素：</p>
+<p>article，aside，details，figcaption，figure，footer，header，main，mark，nav，section，summary，time</p>
+<h1 id="HTML5-代码约定"><a href="#HTML5-代码约定" class="headerlink" title="HTML5 代码约定"></a>HTML5 代码约定</h1><ol>
+<li>请使用正确的文档类型 <code>&lt;!DOCTYPE html&gt;</code></li>
+<li>请使用小写元素名</li>
+<li>关闭所有 HTML 元素</li>
+<li>关闭空的 HTML 元素 <code>&lt;meta charset=&quot;utf-8&quot; /&gt; </code></li>
+<li>使用小写属性名 <code>&lt;div class=&quot;menu&quot;&gt;</code></li>
+<li>属性值加引号 <code>&lt;table class=&quot;table striped&quot;&gt;</code></li>
+<li>请始终对图像使用 alt 属性,当图像无法显示时该属性很重要</li>
+<li>请始终定义图像尺寸。这样做会减少闪烁，因为浏览器会在图像加载之前为图像预留空间。</li>
+<li>精简空格 <code>&lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;</code></li>
+<li>避免长代码行</li>
+<li>请勿毫无理由地增加空行。为了提高可读性，请增加空行来分隔大型或逻辑代码块。为了提高可读性，请增加两个空格的缩进。请勿使用 TAB。</li>
+</ol>
+<h1 id="HTML-字符实体"><a href="#HTML-字符实体" class="headerlink" title="HTML 字符实体"></a>HTML 字符实体</h1><p>HTML 中的预留字符必须被替换为字符实体<br>常用：<br>空格 <code>&amp;nbsp;</code>  双引号 <code>&amp;quot;</code>  单引号 <code>&amp;apos;</code><br>乘号 <code>&amp;times;</code> 除号 <code>&amp;divide;</code></p>
+<h1 id="HTML-URL"><a href="#HTML-URL" class="headerlink" title="HTML URL"></a>HTML URL</h1><p>统一资源定位器（URL）用于定位万维网上的文档（或其他数据）<br>格式：<code>scheme://host.domain:port/path/filename</code><br>scheme - 定义因特网服务的类型。最常见的类型是 http<br>host - 定义域主机（http 的默认主机是 www）<br>domain - 定义因特网域名，比如 w3school.com.cn<br>:port - 定义主机上的端口号（http 的默认端口号是 80）<br>path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。<br>filename - 定义文档/资源的名称</p>
+<h1 id="HTML-框架"><a href="#HTML-框架" class="headerlink" title="HTML 框架"></a>HTML 框架</h1><p>通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面。每份HTML文档称为一个框架，并且每个框架都独立于其他的框架。</p>
+<p>使用框架的坏处：开发人员必须同时跟踪更多的HTML文档；很难打印整张页面</p>
+<p>框架结构标签（frameset）定义如何将窗口分割为框架,每个 frameset 定义了一系列行或列,rows/columns 的值规定了每行或每列占据屏幕的面积</p>
+<p>Frame 标签定义了放置在每个框架中的 HTML 文档。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">frameset</span> <span class="attr">cols</span>=<span class="string">&quot;25%,75%&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;frame_a.htm&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">frame</span> <span class="attr">src</span>=<span class="string">&quot;frame_b.htm&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">frameset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="HTML-背景"><a href="#HTML-背景" class="headerlink" title="HTML 背景"></a>HTML 背景</h1><h2 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;#000000&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;rgb(0,0,0)&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;black&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="图片背景"><a href="#图片背景" class="headerlink" title="图片背景"></a>图片背景</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">&quot;clouds.gif&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">&quot;http://www.w3school.com.cn/clouds.gif&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html 表单</title>
+    <url>/2021/04/03/html/html-%E8%A1%A8%E5%8D%95/</url>
+    <content><![CDATA[<h1 id="html表单"><a href="#html表单" class="headerlink" title="html表单"></a>html表单</h1><p>HTML 表单用于搜集不同类型的用户输入。</p>
+<span id="more"></span>
+<p><strong>form</strong> 元素定义 HTML 表单<br>HTML 表单包含表单元素。表单元素指的是不同类型的 input 元素、复选框、单选按钮、提交按钮等等。</p>
+<h1 id="表单属性"><a href="#表单属性" class="headerlink" title="表单属性"></a>表单属性</h1><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>accept-charset</td>
+<td>规定用于表单提交的字符编码。</td>
+</tr>
+<tr>
+<td>action</td>
+<td>规定提交表单时将表单数据发送到何处。</td>
+</tr>
+<tr>
+<td>autocomplete</td>
+<td>规定表单是否应打开自动完成（填写）功能。</td>
+</tr>
+<tr>
+<td>enctype</td>
+<td>规定将表单数据提交到服务器时应如何编码（仅供 method=”post”）。</td>
+</tr>
+<tr>
+<td>method</td>
+<td>规定发送表单数据时要使用的 HTTP 方法。</td>
+</tr>
+<tr>
+<td>name</td>
+<td>规定表单名称。</td>
+</tr>
+<tr>
+<td>novalidate</td>
+<td>规定提交时不应验证表单。</td>
+</tr>
+<tr>
+<td>rel</td>
+<td>规定链接资源和当前文档之间的关系。</td>
+</tr>
+<tr>
+<td>target</td>
+<td>规定提交表单后在何处显示接收到的响应。</td>
+</tr>
+</tbody></table>
+<h2 id="action"><a href="#action" class="headerlink" title="action"></a>action</h2><p><strong>如果省略 action 属性，则将 action 设置为当前页面</strong>。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--提交后，将表单数据发送到 &quot;action_page.php&quot;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/action_page.php&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;fname&quot;</span>&gt;</span>First name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;fname&quot;</span> <span class="attr">name</span>=<span class="string">&quot;fname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Bill&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;lname&quot;</span>&gt;</span>Last name:<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;lname&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Gates&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="Bill"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Gates"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<h2 id="target"><a href="#target" class="headerlink" title="target"></a>target</h2><p>默认值为 _self，这意味着响应将在当前窗口中打开。</p>
+<p>target的值：</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_blank</td>
+<td>响应显示在新窗口或选项卡中。</td>
+</tr>
+<tr>
+<td>_self</td>
+<td>响应显示在当前窗口中。</td>
+</tr>
+<tr>
+<td>_parent</td>
+<td>响应显示在父框架中。</td>
+</tr>
+<tr>
+<td>_top</td>
+<td>响应显示在窗口的整个 body 中。</td>
+</tr>
+<tr>
+<td>framename</td>
+<td>响应显示在命名的 iframe 中。</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--提交的结果将在新的浏览器标签中打开--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/action_page.php&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>method 属性指定提交表单数据时要使用的 HTTP 方法。</p>
+<p>表单数据可以作为 URL 变量（使用 method=”get”）或作为 HTTP post 事务（使用 method=”post”）发送。</p>
+<p>提交表单数据时，默认的 HTTP 方法是 GET。</p>
+<h1 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h1><h2 id="input元素"><a href="#input元素" class="headerlink" title="input元素"></a>input元素</h2><h3 id="输入类型：text"><a href="#输入类型：text" class="headerlink" title="输入类型：text"></a>输入类型：text</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line"> First name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firstname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> Last name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lastname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<form>
+ First name:<br>
+<input type="text" name="firstname">
+<br>
+ Last name:<br>
+<input type="text" name="lastname">
+</form> 
+
+<h3 id="输入类型：password"><a href="#输入类型：password" class="headerlink" title="输入类型：password"></a>输入类型：password</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;test&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输入类型：submit"><a href="#输入类型：submit" class="headerlink" title="输入类型：submit"></a>输入类型：submit</h3><p>input type=”submit” 定义提交表单数据至表单处理程序的按钮。</p>
+<p><strong>表单处理程序</strong>通常是包含处理输入数据的脚本的服务器页面。</p>
+<p>在表单的 action 属性中规定表单处理程序：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;action_page.php&quot;</span>&gt;</span></span><br><span class="line">First name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firstname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Mickey&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">Last name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lastname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Mouse&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<h3 id="输入类型：radio"><a href="#输入类型：radio" class="headerlink" title="输入类型：radio"></a>输入类型：radio</h3><p>定义单选按钮</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span> <span class="attr">checked</span>&gt;</span>Male</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span>&gt;</span>Female</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<form>
+<input type="radio" name="sex" value="male" checked>Male
+<br>
+<input type="radio" name="sex" value="female">Female
+</form> 
+
+<h3 id="输入类型：checkbox"><a href="#输入类型：checkbox" class="headerlink" title="输入类型：checkbox"></a>输入类型：checkbox</h3><p>定义复选框</p>
+<h3 id="输入类型：buttom"><a href="#输入类型：buttom" class="headerlink" title="输入类型：buttom"></a>输入类型：buttom</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;Hello World!&#x27;)&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Click Me!&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<input type="button" onclick="alert('Hello World!')" value="Click Me!">
+
+<h3 id="输入类型：number"><a href="#输入类型：number" class="headerlink" title="输入类型：number"></a>输入类型：number</h3><p>用于应该包含数字值的输入字段，能够对数字做出限制。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  Quantity (between 1 and 5):</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;quantity&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span> <span class="attr">max</span>=<span class="string">&quot;5&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<form>
+  Quantity (between 1 and 5):
+  <input type="number" name="quantity" min="1" max="5">
+</form>
+
+<h2 id="input属性"><a href="#input属性" class="headerlink" title="input属性"></a>input属性</h2><h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>value 属性规定输入字段的初始值</p>
+<h3 id="readonly"><a href="#readonly" class="headerlink" title="readonly"></a>readonly</h3><p>属性规定输入字段为只读（不能修改）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"> First name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firstname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;John&quot;</span> <span class="attr">readonly</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> Last name:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;lastname&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<form action="">
+ First name:<br>
+<input type="text" name="firstname" value="John" readonly>
+<br>
+ Last name:<br>
+<input type="text" name="lastname">
+</form> 
+
+<h3 id="disabled"><a href="#disabled" class="headerlink" title="disabled"></a>disabled</h3><p>disabled 属性规定输入字段是禁用的。</p>
+<p>被禁用的元素是不可用和不可点击的。</p>
+<p>被禁用的元素不会被提交。</p>
+<h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3><p>size 属性规定输入字段的尺寸（以字符计）</p>
+<h3 id="maxlength"><a href="#maxlength" class="headerlink" title="maxlength"></a>maxlength</h3><p>maxlength 属性规定输入字段允许的最大长度</p>
+<h3 id="autocomplete"><a href="#autocomplete" class="headerlink" title="autocomplete"></a>autocomplete</h3><p>autocomplete 属性规定表单或输入字段是否应该自动完成。</p>
+<p>当自动完成开启，浏览器会基于用户之前的输入值自动填写值。</p>
+<h3 id="novalidate"><a href="#novalidate" class="headerlink" title="novalidate"></a>novalidate</h3><p>如果设置，则 novalidate 规定在提交表单时不对表单数据进行验证</p>
+<h3 id="form"><a href="#form" class="headerlink" title="form"></a>form</h3><p>form 属性规定 <code>&lt;input&gt;</code> 元素所属的一个或多个表单<br>使得input元素可以在表单外</p>
+<h2 id="select元素"><a href="#select元素" class="headerlink" title="select元素"></a>select元素</h2><p>定义下拉列表</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;cars&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;volvo&quot;</span>&gt;</span>Volvo<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;saab&quot;</span>&gt;</span>Saab<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;fiat&quot;</span>&gt;</span>Fiat<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;audi&quot;</span>&gt;</span>Audi<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+
+<h2 id="option元素"><a href="#option元素" class="headerlink" title="option元素"></a>option元素</h2><p>定义待选择的选项。</p>
+<p>列表通常会把首个选项显示为被选选项</p>
+<p>您能够通过添加 selected 属性来定义预定义选项</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;fiat&quot;</span> <span class="attr">selected</span>&gt;</span>Fiat<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<option value="fiat" selected>Fiat</option>
+
+<h2 id="textarea元素"><a href="#textarea元素" class="headerlink" title="textarea元素"></a>textarea元素</h2><p>定义多行输入字段（文本域）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;message&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;30&quot;</span>&gt;</span></span><br><span class="line">The cat was playing in the garden.</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<textarea name="message" rows="10" cols="30">
+The cat was playing in the garden.
+</textarea>
+
+<h2 id="HTML5-datalist元素"><a href="#HTML5-datalist元素" class="headerlink" title="HTML5 datalist元素"></a>HTML5 datalist元素</h2><p>为 input 元素规定预定义选项列表。</p>
+<p>用户会在他们输入数据时看到预定义选项的下拉列表。</p>
+<p>input 元素的 list 属性必须引用 datalist 元素的 id 属性。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;action_page.php&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">list</span>=<span class="string">&quot;browsers&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">&quot;browsers&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Internet Explorer&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Firefox&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Chrome&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Opera&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;Safari&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<form action="action_page.php">
+<input list="browsers">
+<datalist id="browsers">
+   <option value="Internet Explorer">
+   <option value="Firefox">
+   <option value="Chrome">
+   <option value="Opera">
+   <option value="Safari">
+</datalist> 
+</form>]]></content>
+      <categories>
+        <category>html</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+        <tag>html表单</tag>
+      </tags>
+  </entry>
 </search>
