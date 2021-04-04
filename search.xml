@@ -815,4 +815,313 @@ The cat was playing in the garden.
         <tag>html表单</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Javascript 简介</title>
+    <url>/2021/04/03/javascript/Javascript-%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="什么是Javascript？"><a href="#什么是Javascript？" class="headerlink" title="什么是Javascript？"></a>什么是Javascript？</h1><p>JavaScript 是一种轻量级的脚本语言。所谓“<strong>脚本语言</strong>”，指的是它不具备开发操作系统的能力，而是只用来编写控制其他大型应用程序的“脚本”。</p>
+<p>JavaScript 是一种嵌入式语言。它本身提供的核心语法不算很多，只能用来做一些数学和逻辑运算。JavaScript 本身不提供任何与 I/O相关的 API，都要靠宿主环境提供，所以 JavaScript 只合适嵌入更大型的应用程序环境，去调用宿主环境提供的底层 API。</p>
+<span id="more"></span>
+<p>目前，已经嵌入 JavaScript 的<strong>宿主环境</strong>有多种，最常见的环境就是浏览器，另外还有服务器环境，也就是 Node 项目。</p>
+<p>从语法角度看，JavaScript语言是一种“<strong>对象模型</strong>”语言。各种宿主环境通过这个模型，描述自己的功能和操作接口，从而通过 JavaScript 控制这些功能。但是，JavaScript 并不是纯粹的“面向对象语言”，还支持其他编程范式（比如<strong>函数式编程</strong>）。这导致几乎任何一个问题，JavaScript 都有多种解决方法。</p>
+<p>JavaScript 的核心语法部分相当精简，只包括两个部分：基本的语法构造（比如操作符、控制结构、语句）和标准库（就是一系列具有各种功能的对象比如Array、Date、Math等）。除此之外，各种宿主环境提供额外的 API（即只能在该环境使用的接口），以便 JavaScript 调用。以浏览器为例，它提供的额外 API 可以分成三大类：</p>
+<ol>
+<li>浏览器控制类：操作浏览器</li>
+<li>DOM 类：操作网页的各种元素</li>
+<li>Web 类：实现互联网的各种功能</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript 基本语法</title>
+    <url>/2021/04/03/javascript/Javascript-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h1><p>语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内</p>
+<p>语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值</p>
+<span id="more"></span>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>变量的声明与赋值：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>如果只声明未赋值，则变量是<strong>未定义的</strong>(undefined)</p>
+<p>使用一个未声明的变量，则会报错</p>
+<p>可以同时声明多个变量：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a,b = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>JavaScript 是一种<strong>动态类型</strong>语言，也就是说，<strong>变量的类型没有限制</strong>，变量可以随时更改类型。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">a = <span class="string">&quot;hello world&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>如果使用var重新声明一个已经存在的变量是无效的，如果再次声明且赋值，则会覆盖原值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> x; <span class="comment">//无效，x仍为1</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;<span class="comment">//x为2</span></span><br></pre></td></tr></table></figure>
+<h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><p>JavaScript 引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句，都会被提升到代码的头部，这就叫做<strong>变量提升</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); </span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>; </span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//a未定义</span></span><br><span class="line">a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><p>标识符指的是用来识别各种值的合法名称。最常见的标识符就是<strong>变量名</strong>和<strong>函数名</strong>。JavaScript 语言的标识符对大小写敏感，所以a和A是两个不同的标识符。</p>
+<p>命名规则：</p>
+<ol>
+<li>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（$）和下划线（_）</li>
+<li>第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字0-9</li>
+</ol>
+<p>JavaScript 有一些<strong>保留字</strong>，不能用作标识符：arguments、break、case、catch、class、const、continue、debugger、default、delete、do、else、enum、eval、export、extends、false、finally、for、function、if、implements、import、in、instanceof、interface、let、new、null、package、private、protected、public、return、static、super、switch、this、throw、true、try、typeof、var、void、while、with、yield</p>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>用//或/**/包起来的行或数行</p>
+<h1 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h1><p>大括号包围起来的代码块，对于var命令来说，JavaScript 的区块不构成单独的作用域</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">a <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><h2 id="if结构"><a href="#if结构" class="headerlink" title="if结构"></a>if结构</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔值) <span class="comment">//括号里可以是值为布尔值的表达式</span></span><br><span class="line">  语句;</span><br></pre></td></tr></table></figure>
+<h2 id="if-else-if结构"><a href="#if-else-if结构" class="headerlink" title="if else if结构"></a>if else if结构</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(布尔值)</span><br><span class="line">    语句;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(布尔值)</span><br><span class="line">    语句;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    语句;</span><br></pre></td></tr></table></figure>
+<h2 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (fruit) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&quot;banana&quot;</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&quot;apple&quot;</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不加break，则之后的每个条件都会判定<br>switch语句后面的表达式，与case语句后面的表示式比较运行结果时，采用的是严格相等运算符（===），而不是相等运算符（==），这意味着比较时<strong>不会发生类型转换</strong>。</p>
+<h2 id="三运运算符"><a href="#三运运算符" class="headerlink" title="三运运算符:?"></a>三运运算符:?</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(条件) ? 表达式<span class="number">1</span> : 表达式<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (条件) &#123;</span><br><span class="line">  语句;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (初始化表达式; 条件; 递增表达式)&#123;</span><br><span class="line">  语句</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  语句</span><br><span class="line">&#125; <span class="keyword">while</span> (条件);</span><br></pre></td></tr></table></figure>
+<h2 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h2><p>break语句用于跳出代码块或循环<br>continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环</p>
+<h2 id="label"><a href="#label" class="headerlink" title="label"></a>label</h2><p>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置<br>标签通常与break语句和continue语句配合使用，跳出特定的循环</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">label:  <span class="comment">//label可以是任意的名字（不包括保留字）</span></span><br><span class="line">  语句</span><br><span class="line"><span class="comment">//举例</span></span><br><span class="line">top:</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)&#123;</span><br><span class="line">      <span class="keyword">if</span> (i === <span class="number">1</span> &amp;&amp; j === <span class="number">1</span>) <span class="keyword">break</span> top;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;i=&#x27;</span> + i + <span class="string">&#x27;, j=&#x27;</span> + j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码为一个双重循环区块，break命令后面加上了top标签（注意，top不用加引号），满足条件时，直接跳出双层循环。如果break语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环</p>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>Javascript基本语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript 数据类型</title>
+    <url>/2021/04/03/javascript/Javascript-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JavaScript 的数据类型，共有六种。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数值（number）</td>
+<td>整数和小数（比如1和3.14）。</td>
+</tr>
+<tr>
+<td>字符串（string）</td>
+<td>文本（比如Hello World）。</td>
+</tr>
+<tr>
+<td>布尔值（boolean）</td>
+<td>表示真伪的两个特殊值，即true（真）和false（假）。</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值。</td>
+</tr>
+<tr>
+<td>null</td>
+<td>表示空值，即此处的值为空。</td>
+</tr>
+<tr>
+<td>对象（object）</td>
+<td>各种值组成的集合。</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+<p>数值、字符串、布尔值这三种类型，合称为<strong>原始类型</strong>（primitive type）的值，即它们是最基本的数据类型，不能再细分了。</p>
+<p>对象则称为<strong>合成类型</strong>=的值，因为一个对象往往是多个原始类型的值的合成，可以看作是一个存放各种值的<strong>容器</strong>，对象可细分为狭义的对象（object）、数组（array）、函数（function）</p>
+<p>至于undefined和null，一般将它们看成两个<strong>特殊值</strong>。</p>
+<h2 id="typeof运算符"><a href="#typeof运算符" class="headerlink" title="typeof运算符"></a>typeof运算符</h2><p>typeof运算符可以返回一个值的数据类型。</p>
+<p>数值、字符串、布尔值分别返回number、string、boolean。<br>函数返回function<br>undefined返回undefined。利用这一点，typeof可以用来检查一个没有声明的变量，而不报错。实际编程中，这个特点通常用在判断语句。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 错误的写法</span></span><br><span class="line"><span class="keyword">if</span> (v) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ReferenceError: v is not defined</span></span><br><span class="line"><span class="comment">// 正确的写法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> v === <span class="string">&quot;undefined&quot;</span>) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对象和null返回object</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="built_in">window</span> <span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125; <span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="keyword">typeof</span> [] <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，空数组（[]）的类型也是object，这表示在 JavaScript 内部，数组本质上只是一种特殊的对象。</p>
+<h1 id="null-undefined"><a href="#null-undefined" class="headerlink" title="null, undefined"></a>null, undefined</h1><p>null与undefined都可以表示“没有”，含义非常相似。将一个变量赋值为undefined或null，语法效果几乎没区别。<br>在if语句中，它们都会被自动转为false，相等运算符（==）直接报告两者相等。</p>
+<h2 id="null-undefined用法与含义"><a href="#null-undefined用法与含义" class="headerlink" title="null,undefined用法与含义"></a>null,undefined用法与含义</h2><p>null表示空值，即该处的值现在为空。调用函数时，某个参数未设置任何值，这时就可以传入null，表示该参数为空。比如，某个函数接受引擎抛出的错误作为参数，如果运行过程中未出错，那么这个参数就会传入null，表示未发生错误。</p>
+<p>undefined表示“未定义”，下面是返回undefined的典型场景<br><font color="red">大多数情况下，我们都应该用null。undefined仅仅在判断函数参数是否传递的情况下有用。</font></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 变量声明了，但没有赋值</span></span><br><span class="line"><span class="keyword">var</span> i;</span><br><span class="line">i <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用函数时，应该提供的参数没有提供，该参数等于 undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line">f() <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象没有赋值的属性</span></span><br><span class="line"><span class="keyword">var</span>  o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.p <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数没有返回值时，默认返回 undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">f() <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h1 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h1><p>下列运算符会返回布尔值：</p>
+<ol>
+<li>前置逻辑运算符： ! (Not)</li>
+<li>相等运算符：===，!==，==，!=（===不转换类型，==转换类型再比较）</li>
+<li>比较运算符：&gt;，&gt;=，&lt;，&lt;=</li>
+<li>逻辑运算：&amp;&amp; ||</li>
+</ol>
+<p>如果 JavaScript 预期某个位置应该是布尔值，会将该位置上现有的值自动转为布尔值。转换规则是除了下面六个值被转为false，其他值都视为true:</p>
+<ol>
+<li>undefined</li>
+<li>null</li>
+<li>false</li>
+<li>0</li>
+<li>NaN</li>
+<li>“”或’’（空字符串）</li>
+</ol>
+<p>注意，<font color="red">空数组（[]）和空对象（{}）对应的布尔值，都是true</font></p>
+<h1 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h1><h2 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h2><h3 id="整数与浮点数"><a href="#整数与浮点数" class="headerlink" title="整数与浮点数"></a>整数与浮点数</h3><p>JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，1与1.0是相同的，是同一个数。</p>
+<p>这就是说，JavaScript 语言的底层根本没有整数，所有数字都是小数（64位浮点数）。</p>
+<p>由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="number">0.3</span> / <span class="number">0.1</span></span><br><span class="line"><span class="comment">// 2.9999999999999996</span></span><br><span class="line"></span><br><span class="line">(<span class="number">0.3</span> - <span class="number">0.2</span>) === (<span class="number">0.2</span> - <span class="number">0.1</span>)</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>如果要比较两个浮点数是否相等，只能计算它们之差的绝对值，看是否小于某个<strong>阈值</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Math</span>.abs(<span class="number">1</span> / <span class="number">3</span> - (<span class="number">1</span> - <span class="number">2</span> / <span class="number">3</span>)) &lt; <span class="number">0.0000001</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p><strong>NaN</strong>这个特殊的Number与所有其他值都不相等，包括它自己。唯一能判断NaN的方法是通过isNaN()函数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">isNaN</span>(<span class="literal">NaN</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数值精度"><a href="#数值精度" class="headerlink" title="数值精度"></a>数值精度</h3><p>根据IEEE754，绝对值小于2的53次方的<strong>整数</strong>，即-2^53 到2^53，都可以精确表示</p>
+<p>简单的法则就是，JavaScript 对15位的十进制数都可以精确处理</p>
+<h3 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h3><p>64位浮点数的指数部分的值最大为2047，分出一半表示负数，则 JavaScript 能够表示的数值范围为21024到2-1023（开区间），超出这个范围的数无法表示。</p>
+<p>如果一个数大于等于2的1024次方，那么就会发生“<strong>正向溢出</strong>”，即 JavaScript 无法表示这么大的数，这时就会返回Infinity</p>
+<p>如果一个数小于等于2的-1075次方（指数部分最小值-1023，再加上小数部分的52位），那么就会发生为“<strong>负向溢出</strong>”，即 JavaScript 无法表示这么小的数，这时会直接返回0</p>
+<p>JavaScript 提供Number对象的MAX_VALUE和MIN_VALUE属性，返回可以表示的具体的最大值和最小值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Number</span>.MAX_VALUE <span class="comment">// 1.7976931348623157e+308</span></span><br><span class="line"><span class="built_in">Number</span>.MIN_VALUE <span class="comment">// 5e-324</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>JavaScript的数组可以包括任意数据类型：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3.14</span>, <span class="string">&#x27;Hello&#x27;</span>, <span class="literal">null</span>, <span class="literal">true</span>];</span><br></pre></td></tr></table></figure>
+<p>另一种<strong>创建数组</strong>的方法是通过Array()函数实现:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); </span><br></pre></td></tr></table></figure>
+<p>数组的元素可以通过索引来访问。请注意，索引的起始值为0</p>
+<h2 id="数组长度"><a href="#数组长度" class="headerlink" title="数组长度"></a>数组长度</h2><p>要取得Array的长度，直接访问length属性</p>
+<p>直接给Array的length<strong>赋一个新值</strong>会导致Array大小的变化</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.length; <span class="comment">// 3</span></span><br><span class="line">arr.length = <span class="number">6</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2, 3, undefined, undefined, undefined]</span></span><br><span class="line">arr.length = <span class="number">2</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2]</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改数组元素"><a href="#修改数组元素" class="headerlink" title="修改数组元素"></a>修改数组元素</h2><p>Array可以通过索引把对应的元素修改为新的值，因此，对Array的索引进行赋值会直接修改这个Array</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">99</span>;</span><br><span class="line">arr; <span class="comment">// arr现在变为[&#x27;A&#x27;, 99, &#x27;C&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>如果通过索引赋值时，<strong>索引超过了范围</strong>，同样会引起Array大小的变化：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">5</span>] = <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">arr; <span class="comment">// arr变为[1, 2, 3, undefined, undefined, &#x27;x&#x27;]</span></span><br></pre></td></tr></table></figure>
+<h2 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h2><p>Array也可以通过indexOf()来<strong>搜索一个指定的元素的位置</strong>，不包含元素则返回-1：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="string">&#x27;30&#x27;</span>, <span class="string">&#x27;xyz&#x27;</span>];</span><br><span class="line">arr.indexOf(<span class="number">10</span>); <span class="comment">// 元素10的索引为0</span></span><br><span class="line">arr.indexOf(<span class="number">20</span>); <span class="comment">// 元素20的索引为1</span></span><br><span class="line">arr.indexOf(<span class="number">30</span>); <span class="comment">// 元素30没有找到，返回-1</span></span><br><span class="line">arr.indexOf(<span class="string">&#x27;30&#x27;</span>); <span class="comment">// 元素&#x27;30&#x27;的索引为2</span></span><br></pre></td></tr></table></figure>
+<h2 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h2><p>截取Array的部分元素，然后返回一个新的Array：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>];</span><br><span class="line">arr.slice(<span class="number">0</span>, <span class="number">3</span>); <span class="comment">// 从索引0开始，到索引3结束，但不包括索引3: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;]</span></span><br><span class="line">arr.slice(<span class="number">3</span>); <span class="comment">// 从索引3开始到结束: [&#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;]</span></span><br></pre></td></tr></table></figure>
+<p>如果不给slice()传递任何参数，它就会从头到尾截取所有元素,可以很容易地复制一个Array:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> aCopy = arr.slice();</span><br><span class="line">aCopy; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;, &#x27;F&#x27;, &#x27;G&#x27;]</span></span><br><span class="line">aCopy === arr; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="push和pop"><a href="#push和pop" class="headerlink" title="push和pop"></a>push和pop</h2><p>push()向Array的末尾添加若干元素，pop()则把Array的最后一个元素删除掉：<br><strong>注意</strong>：空数组继续pop不会报错，而是返回undefined</p>
+<h2 id="unshift和shift"><a href="#unshift和shift" class="headerlink" title="unshift和shift"></a>unshift和shift</h2><p>如果要往Array的头部添加若干元素，使用unshift()方法，shift()方法则把Array的第一个元素删掉：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.unshift(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>); <span class="comment">// 返回Array新的长度: 4</span></span><br><span class="line">arr; <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, 1, 2]</span></span><br><span class="line">arr.shift(); <span class="comment">// &#x27;A&#x27;</span></span><br><span class="line">arr; <span class="comment">// [&#x27;B&#x27;, 1, 2]</span></span><br><span class="line">arr.shift(); arr.shift(); arr.shift(); <span class="comment">// 连续shift 3次</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br><span class="line">arr.shift(); <span class="comment">// 空数组继续shift不会报错，而是返回undefined</span></span><br><span class="line">arr; <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h2><p>sort()可以对当前Array进行排序，它会直接修改当前Array的元素位置，直接调用时，按照默认顺序排序,可以传入函数<strong>改变排序方式</strong></p>
+<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h2><p>反转数组</p>
+<h2 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h2><p>splice()方法是修改Array的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素.<br><strong>前两个参数</strong>是删除的起始位置和删除元素的数目，<strong>随后</strong>是添加的元素，返回被删除的元素组成的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;Microsoft&#x27;</span>, <span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Yahoo&#x27;</span>, <span class="string">&#x27;AOL&#x27;</span>, <span class="string">&#x27;Excite&#x27;</span>, <span class="string">&#x27;Oracle&#x27;</span>];</span><br><span class="line"><span class="comment">// 从索引2开始删除3个元素,然后再添加两个元素:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">3</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>); <span class="comment">// 返回删除的元素 [&#x27;Yahoo&#x27;, &#x27;AOL&#x27;, &#x27;Excite&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只删除,不添加:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">2</span>); <span class="comment">// [&#x27;Google&#x27;, &#x27;Facebook&#x27;]</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Oracle&#x27;]</span></span><br><span class="line"><span class="comment">// 只添加,不删除:</span></span><br><span class="line">arr.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">&#x27;Google&#x27;</span>, <span class="string">&#x27;Facebook&#x27;</span>); <span class="comment">// 返回[],因为没有删除任何元素</span></span><br><span class="line">arr; <span class="comment">// [&#x27;Microsoft&#x27;, &#x27;Apple&#x27;, &#x27;Google&#x27;, &#x27;Facebook&#x27;, &#x27;Oracle&#x27;]</span></span><br></pre></td></tr></table></figure>
+<h2 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h2><p>concat()方法把当前的Array和另一个Array连接起来，并返回一个新的Array</p>
+<p>请注意，concat()方法并没有修改当前Array，而是返回了一个新的Array。</p>
+<p>实际上，concat()方法可以接收<strong>任意个元素和Array</strong>，并且自动把Array拆开，然后全部添加到新的Array里：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">arr.concat(<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><p>它把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.join(<span class="string">&#x27;-&#x27;</span>); <span class="comment">// &#x27;A-B-C-1-2-3&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>如果数组的某个元素又是一个Array，则可以形成多维数组，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">400</span>, <span class="number">500</span>, <span class="number">600</span>], <span class="string">&#x27;-&#x27;</span>];</span><br></pre></td></tr></table></figure>
+<p>查找元素：arrname[pos1][pos2]…[posn]</p>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>JavaScript的字符串就是用’’或””括起来的字符表示。</p>
+<p>如果’本身也是一个字符，那就可以用””括起来，比如”I’m OK”包含的字符是I，’，m，空格，O，K这6个字符。</p>
+<p>如果字符串内部既包含’又包含”，可以用转义字符\来标识，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;I\&#x27;m \&quot;OK\&quot;!&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">`这是一个</span></span><br><span class="line"><span class="string">多行</span></span><br><span class="line"><span class="string">字符串`</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><p>要把多个字符串连接起来，可以用+号连接：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> age = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> message = <span class="string">&#x27;你好, &#x27;</span> + name + <span class="string">&#x27;, 你今年&#x27;</span> + age + <span class="string">&#x27;岁了!&#x27;</span>;</span><br><span class="line">alert(message);</span><br></pre></td></tr></table></figure>
+<p>如果有很多变量需要连接，用+号就比较麻烦。ES6新增了一种模板字符串，表示方法和上面的多行字符串一样，但是它会自动替换字符串中的变量：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小明&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> age = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> message = <span class="string">`你好, <span class="subst">$&#123;name&#125;</span>, 你今年<span class="subst">$&#123;age&#125;</span>岁了!`</span>;</span><br><span class="line">alert(message);</span><br></pre></td></tr></table></figure>
+<h2 id="操作字符串"><a href="#操作字符串" class="headerlink" title="操作字符串"></a>操作字符串</h2><h3 id="长度"><a href="#长度" class="headerlink" title="长度"></a>长度</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;Hello, world!&#x27;</span>;</span><br><span class="line">s.length; <span class="comment">// 13</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取字符串某个指定位置的字符"><a href="#获取字符串某个指定位置的字符" class="headerlink" title="获取字符串某个指定位置的字符"></a>获取字符串某个指定位置的字符</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;Hello, world!&#x27;</span>;</span><br><span class="line"></span><br><span class="line">s[<span class="number">0</span>]; <span class="comment">// &#x27;H&#x27;</span></span><br><span class="line">s[<span class="number">6</span>]; <span class="comment">// &#x27; &#x27;</span></span><br><span class="line">s[<span class="number">7</span>]; <span class="comment">// &#x27;w&#x27;</span></span><br><span class="line">s[<span class="number">12</span>]; <span class="comment">// &#x27;!&#x27;</span></span><br><span class="line">s[<span class="number">13</span>]; <span class="comment">// undefined 超出范围的索引不会报错，但一律返回undefined</span></span><br></pre></td></tr></table></figure>
+<p>区别于数组，字符串是<font color="red">不可变的</font></p>
+<h3 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h3><p>toUpperCase()把一个字符串全部变为大写，toLowerCase()把一个字符串全部变为小写，不操作原串，有返回值：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line">s.toUpperCase(); <span class="comment">// 返回&#x27;HELLO&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;Hello&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> lower = s.toLowerCase(); <span class="comment">// 返回&#x27;hello&#x27;并赋值给变量lower</span></span><br><span class="line">lower; <span class="comment">// &#x27;hello&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="indexOf-1"><a href="#indexOf-1" class="headerlink" title="indexOf()"></a>indexOf()</h3><p>indexOf()会搜索指定字符串出现的位置：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;hello, world&#x27;</span>;</span><br><span class="line">s.indexOf(<span class="string">&#x27;world&#x27;</span>); <span class="comment">// 返回7</span></span><br><span class="line">s.indexOf(<span class="string">&#x27;World&#x27;</span>); <span class="comment">// 没有找到指定的子串，返回-1</span></span><br></pre></td></tr></table></figure>
+<h3 id="substring"><a href="#substring" class="headerlink" title="substring"></a>substring</h3><p>substring()返回指定索引区间的子串：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">&#x27;hello, world&#x27;</span></span><br><span class="line">s.substring(<span class="number">0</span>, <span class="number">5</span>); <span class="comment">// 从索引0开始到5（不包括5），返回&#x27;hello&#x27;</span></span><br><span class="line">s.substring(<span class="number">7</span>); <span class="comment">// 从索引7开始到结束，返回&#x27;world&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>JavaScript的对象是一种无序的<strong>集合</strong>数据类型，它由若干<strong>键值对</strong>组成。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    school: <span class="string">&#x27;No.1 Middle School&#x27;</span>,</span><br><span class="line">    height: <span class="number">1.70</span>,</span><br><span class="line">    weight: <span class="number">65</span>,</span><br><span class="line">    score: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//访问属性</span></span><br><span class="line">xiaoming.name; <span class="comment">// &#x27;小明&#x27;</span></span><br><span class="line">xiaoming.birth; <span class="comment">// 1990</span></span><br></pre></td></tr></table></figure>
+<p>访问属性是通过.操作符完成的，但这要求属性名必须是一个有效的变量名。如果属性名包含<strong>特殊字符</strong>，就必须用’’括起来,访问这个属性也无法使用.操作符，必须用[‘xxx’]来访问：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaohong = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小红&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;middle-school&#x27;</span>: <span class="string">&#x27;No.1 Middle School&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//访问特殊属性</span></span><br><span class="line">xiaohong[<span class="string">&#x27;middle-school&#x27;</span>]; <span class="comment">// &#x27;No.1 Middle School&#x27;</span></span><br><span class="line"><span class="comment">//普通名字的属性，.和[]运算符都可行</span></span><br><span class="line">xiaohong[<span class="string">&#x27;name&#x27;</span>]; <span class="comment">// &#x27;小红&#x27;</span></span><br><span class="line">xiaohong.name; <span class="comment">// &#x27;小红&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>访问<strong>不存在的属性</strong>不会报错，而是返回undefined</p>
+<h2 id="增加，删除属性"><a href="#增加，删除属性" class="headerlink" title="增加，删除属性"></a>增加，删除属性</h2><p>由于JavaScript的对象是动态类型，你可以自由地给一个对象添加或删除属性：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.age; <span class="comment">// undefined</span></span><br><span class="line">xiaoming.age = <span class="number">18</span>; <span class="comment">// 新增一个age属性</span></span><br><span class="line">xiaoming.age; <span class="comment">// 18</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming.age; <span class="comment">// 删除age属性</span></span><br><span class="line">xiaoming.age; <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming[<span class="string">&#x27;name&#x27;</span>]; <span class="comment">// 删除name属性</span></span><br><span class="line">xiaoming.name; <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">delete</span> xiaoming.school; <span class="comment">// 删除一个不存在的school属性也不会报错</span></span><br></pre></td></tr></table></figure>
+<h2 id="检测属性是否存在"><a href="#检测属性是否存在" class="headerlink" title="检测属性是否存在"></a>检测属性是否存在</h2><ol>
+<li>如果我们要检测xiaoming是否拥有某一属性，可以用<strong>in操作符</strong>：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span>,</span><br><span class="line">    birth: <span class="number">1990</span>,</span><br><span class="line">    school: <span class="string">&#x27;No.1 Middle School&#x27;</span>,</span><br><span class="line">    height: <span class="number">1.70</span>,</span><br><span class="line">    weight: <span class="number">65</span>,</span><br><span class="line">    score: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> xiaoming; <span class="comment">// true</span></span><br><span class="line"><span class="string">&#x27;grade&#x27;</span> <span class="keyword">in</span> xiaoming; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+如果in判断一个属性存在，这个属性不一定是xiaoming的，它可能是xiaoming<strong>继承</strong>得到的：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;toString&#x27;</span> <span class="keyword">in</span> xiaoming; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+因为toString定义在object对象中，而所有对象最终都会在原型链上指向object，所以xiaoming也拥有toString属性。</li>
+<li>要判断一个属性是否是xiaoming<strong>自身拥有</strong>的，而不是继承得到的，可以用hasOwnProperty()方法：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">&#x27;小明&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>); <span class="comment">// true</span></span><br><span class="line">xiaoming.hasOwnProperty(<span class="string">&#x27;toString&#x27;</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>Javascript</tag>
+        <tag>函数</tag>
+        <tag>数组</tag>
+        <tag>对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript Map与Set</title>
+    <url>/2021/04/04/javascript/Javascript-Map%E4%B8%8ESet/</url>
+    <content><![CDATA[<p>JavaScript的默认对象表示方式{}可以视为其他语言中的Map或Dictionary的数据结构，即一组键值对。</p>
+<p>但是JavaScript的对象有个小问题，就是键必须是字符串。但实际上Number或者其他数据类型作为键也是非常合理的。</p>
+<p>从而引入了Map</p>
+<span id="more"></span>
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p>Map是一组键值对的结构，具有极快的查找速度，无论这个表有多大，查找速度都不会变慢</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">&#x27;Michael&#x27;</span>, <span class="number">95</span>], [<span class="string">&#x27;Bob&#x27;</span>, <span class="number">75</span>], [<span class="string">&#x27;Tracy&#x27;</span>, <span class="number">85</span>]]);</span><br></pre></td></tr></table></figure>
+<p>初始化Map需要一个<strong>二维数组</strong>，或者直接初始化一个空Map。</p>
+<p>Map具有以下方法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>(); <span class="comment">// 空Map</span></span><br><span class="line">m.set(<span class="string">&#x27;Adam&#x27;</span>, <span class="number">67</span>); <span class="comment">// 添加新的key-value</span></span><br><span class="line">m.set(<span class="string">&#x27;Bob&#x27;</span>, <span class="number">59</span>);</span><br><span class="line">m.has(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// 是否存在key &#x27;Adam&#x27;: true</span></span><br><span class="line">m.get(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// 67</span></span><br><span class="line">m.delete(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// 删除key &#x27;Adam&#x27;</span></span><br><span class="line">m.get(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<p>由于一个key只能对应一个value，所以，多次对一个key放入value，后面的值会把前面的值冲掉：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">m.set(<span class="string">&#x27;Adam&#x27;</span>, <span class="number">67</span>);</span><br><span class="line">m.set(<span class="string">&#x27;Adam&#x27;</span>, <span class="number">88</span>);</span><br><span class="line">m.get(<span class="string">&#x27;Adam&#x27;</span>); <span class="comment">// 88</span></span><br></pre></td></tr></table></figure>
+<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><p>Set和Map类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在Set中，没有重复的key</p>
+<p>要创建一个Set，需要提供一个Array作为输入，或者直接创建一个空Set：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">Set</span>(); <span class="comment">// 空Set</span></span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 含1, 2, 3</span></span><br></pre></td></tr></table></figure>
+<p>重复元素在Set中<strong>自动被过滤</strong></p>
+<p>通过add(key)方法可以添加元素到Set中，可以重复添加，但不会有效果</p>
+<p>通过delete(key)方法可以删除元素</p>
+<h1 id="iterable"><a href="#iterable" class="headerlink" title="iterable"></a>iterable</h1><p>ES6标准引入了新的iterable类型，Array、Map和Set都属于iterable类型。</p>
+<p>具有iterable类型的集合可以通过新的for … of循环来遍历。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ar a = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>]);</span><br><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="number">1</span>, <span class="string">&#x27;x&#x27;</span>], [<span class="number">2</span>, <span class="string">&#x27;y&#x27;</span>], [<span class="number">3</span>, <span class="string">&#x27;z&#x27;</span>]]);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> x <span class="keyword">of</span> a) &#123; <span class="comment">// 遍历Array</span></span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> x <span class="keyword">of</span> s) &#123; <span class="comment">// 遍历Set</span></span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> x <span class="keyword">of</span> m) &#123; <span class="comment">// 遍历Map</span></span><br><span class="line">    <span class="built_in">console</span>.log(x[<span class="number">0</span>] + <span class="string">&#x27;=&#x27;</span> + x[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而，更好的方式是直接使用iterable内置的forEach方法，它<strong>接收一个函数</strong>，每次迭代就自动回调该函数。以<strong>Array</strong>为例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>];</span><br><span class="line">a.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">element, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// element: 指向当前元素的值</span></span><br><span class="line">    <span class="comment">// index: 指向当前索引</span></span><br><span class="line">    <span class="comment">// array: 指向Array对象本身</span></span><br><span class="line">    <span class="built_in">console</span>.log(element + <span class="string">&#x27;, index = &#x27;</span> + index);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//A, index = 0</span></span><br><span class="line"><span class="comment">//B, index = 1</span></span><br><span class="line"><span class="comment">//C, index = 2</span></span><br></pre></td></tr></table></figure>
+<p><strong>Set</strong>与Array类似，但Set没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>]);</span><br><span class="line">s.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">element, sameElement, set</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(element);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>Map</strong>的回调函数参数依次为value、key和map本身：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="number">1</span>, <span class="string">&#x27;x&#x27;</span>], [<span class="number">2</span>, <span class="string">&#x27;y&#x27;</span>], [<span class="number">3</span>, <span class="string">&#x27;z&#x27;</span>]]);</span><br><span class="line">m.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">value, key, map</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>set</tag>
+        <tag>map</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Javascript 函数</title>
+    <url>/2021/04/04/javascript/Javascript-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="函数的定义和调用"><a href="#函数的定义和调用" class="headerlink" title="函数的定义和调用"></a>函数的定义和调用</h1><h2 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abs</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<ol>
+<li>function指出这是一个函数定义；</li>
+<li>abs是函数的名称；</li>
+<li>(x)括号内列出函数的参数，多个参数以,分隔；</li>
+<li>{ … }之间的代码是函数体，可以包含若干语句，甚至可以没有任何语句。</li>
+</ol>
+<p>如果没有return语句，函数执行完毕后也会返回结果，只是<strong>结果为undefined</strong>。</p>
+<p>由于JavaScript的函数也是一个对象，上述定义的abs()函数实际上是一个函数对象，而函数名abs可以<strong>视为指向该函数的变量</strong>。</p>
+<p>从而，第二种定义函数的方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> abs = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>在这种方式下，function (x) { … }是一个匿名函数，它没有函数名。但是，这个匿名函数赋值给了变量abs，所以，通过变量abs就可以调用该函数。</p>
+<p>上述两种定义完全等价，注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。</p>
+<h2 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h2><p>调用函数时，按顺序传入参数即可：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">abs(<span class="number">10</span>); <span class="comment">// 返回10</span></span><br><span class="line">abs(-<span class="number">9</span>); <span class="comment">// 返回9</span></span><br></pre></td></tr></table></figure>
+<p>由于JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题，虽然函数内部并不需要这些参数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">abs(<span class="number">10</span>, <span class="string">&#x27;blablabla&#x27;</span>); <span class="comment">// 返回10</span></span><br><span class="line">abs(-<span class="number">9</span>, <span class="string">&#x27;haha&#x27;</span>, <span class="string">&#x27;hehe&#x27;</span>, <span class="literal">null</span>); <span class="comment">// 返回9</span></span><br></pre></td></tr></table></figure>
+<p>传入的参数比定义的<strong>少</strong>也没有问题,此时abs(x)函数的参数x将收到undefined，计算结果为NaN:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">abs(); <span class="comment">// 返回NaN</span></span><br></pre></td></tr></table></figure>
+<p>要避免收到undefined，可以<strong>对参数进行检查</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abs</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> x !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">&#x27;Not a number&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h2><p>关键字arguments，它只在<strong>函数内部</strong>起作用，并且永远指向当前函数的调用者传入的所有参数。arguments类似Array但它不是一个Array：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;x = &#x27;</span> + x); <span class="comment">// 10</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;arg &#x27;</span> + i + <span class="string">&#x27; = &#x27;</span> + <span class="built_in">arguments</span>[i]); <span class="comment">// 10, 20, 30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>);</span><br><span class="line"><span class="comment">/*x = 10</span></span><br><span class="line"><span class="comment">arg 0 = 10</span></span><br><span class="line"><span class="comment">arg 1 = 20</span></span><br><span class="line"><span class="comment">arg 2 = 30*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>如果传入的参数大于函数需要的参数，获取多余的参数可以用rest<br>注意，rest必须写在最后，并且形式为…rest</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b, ...rest</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a = &#x27;</span> + a);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;b = &#x27;</span> + b);</span><br><span class="line">    <span class="built_in">console</span>.log(rest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// 结果:</span></span><br><span class="line"><span class="comment">// a = 1</span></span><br><span class="line"><span class="comment">// b = 2</span></span><br><span class="line"><span class="comment">// Array [ 3, 4, 5 ]</span></span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 结果:</span></span><br><span class="line"><span class="comment">// a = 1</span></span><br><span class="line"><span class="comment">// b = undefined</span></span><br><span class="line"><span class="comment">// Array []</span></span><br></pre></td></tr></table></figure>
+<p>传入的参数先绑定a、b，多余的参数以数组形式交给变量rest</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;rest.length;i++)</span><br><span class="line">       sum=sum+rest[i];</span><br><span class="line">    <span class="built_in">console</span>.log(sum);</span><br><span class="line"> &#125;</span><br><span class="line">sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>);  <span class="comment">//输出55</span></span><br></pre></td></tr></table></figure>
+<p>如果传入的参数连正常定义的参数都没填满，rest参数会接收一个空数组（注意不是undefined）。</p>
+<h2 id="小心return语句"><a href="#小心return语句" class="headerlink" title="小心return语句"></a>小心return语句</h2><p>JavaScript引擎有一个在行末自动添加分号的机制，这可能让你栽到return语句的一个大坑：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">name</span>: <span class="string">&#x27;foo&#x27;</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//拆成两行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">&#x27;foo&#x27;</span> &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实际变成了</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span>; <span class="comment">// 自动添加了分号，相当于return undefined;</span></span><br><span class="line">        &#123; <span class="attr">name</span>: <span class="string">&#x27;foo&#x27;</span> &#125;; <span class="comment">// 这行语句已经没法执行到了</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//正确的多行写法是</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="comment">// 这里不会自动加分号，因为&#123;表示语句尚未结束</span></span><br><span class="line">        name: <span class="string">&#x27;foo&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="变量作用域与解构赋值"><a href="#变量作用域与解构赋值" class="headerlink" title="变量作用域与解构赋值"></a>变量作用域与解构赋值</h1>]]></content>
+      <categories>
+        <category>Javascript</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
 </search>
