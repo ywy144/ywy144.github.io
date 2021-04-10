@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="JavaScript世界中使用最广泛的一个库。 jQuery能帮我们干这些事情：  消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码； 简洁的操作DOM的方法：写$(‘#test’)肯定比document.getElementById(‘test’)来得简洁； 轻松实现动画、修改CSS等各种操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript JQuery1">
+<meta property="og:url" content="http://example.com/2021/04/09/javascript/Javascript-JQuery1/index.html">
+<meta property="og:site_name" content="ywy144&#39;s blog">
+<meta property="og:description" content="JavaScript世界中使用最广泛的一个库。 jQuery能帮我们干这些事情：  消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码； 简洁的操作DOM的方法：写$(‘#test’)肯定比document.getElementById(‘test’)来得简洁； 轻松实现动画、修改CSS等各种操作。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-09T07:00:13.000Z">
+<meta property="article:modified_time" content="2021-04-09T08:16:57.809Z">
+<meta property="article:author" content="ywy144">
+<meta property="article:tag" content="JQuery">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/04/09/javascript/Javascript-JQuery1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Javascript JQuery1 | ywy144's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">ywy144's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/ywy144" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/javascript/Javascript-JQuery1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="ywy144">
+      <meta itemprop="description" content="learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ywy144's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Javascript JQuery1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-09 15:00:13 / 修改时间：16:16:57" itemprop="dateCreated datePublished" datetime="2021-04-09T15:00:13+08:00">2021-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>JavaScript世界中使用最广泛的一个库。</p>
+<p>jQuery能帮我们干这些事情：</p>
+<ol>
+<li>消除浏览器差异：你不需要自己写冗长的代码来针对不同的浏览器来绑定事件，编写AJAX等代码；</li>
+<li>简洁的操作DOM的方法：写$(‘#test’)肯定比document.getElementById(‘test’)来得简洁；</li>
+<li>轻松实现动画、修改CSS等各种操作。<span id="more"></span>
+使用JQuery:<br>使用jQuery只需要在页面的<code>&lt;head&gt;</code>引入jQuery文件即可：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;//code.jquery.com/jquery-1.11.3.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">	...</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="符号"><a href="#符号" class="headerlink" title="$符号"></a>$符号</h1><p>jQuery把所有功能全部封装在一个全局变量jQuery中，而$也是一个合法的变量名，它是变量jQuery的别名：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.jQuery; <span class="comment">// jQuery(selector, context)</span></span><br><span class="line"><span class="built_in">window</span>.$; <span class="comment">// jQuery(selector, context)</span></span><br><span class="line">$ === jQuery; <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span>($); <span class="comment">// &#x27;function&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>$本质上就是一个函数，但是函数也是对象，于是$除了可以直接调用外，也可以有很多其他属性。</p>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>选择器是jQuery的核心。一个选择器写出来类似<code>$(&#39;#dom-id&#39;)</code>。</p>
+<p>相对于之前DOM操作中的繁琐代码，JQuery选择器可以帮助我们快速定位到一个或多个DOM节点。</p>
+<h2 id="普通选择器"><a href="#普通选择器" class="headerlink" title="普通选择器"></a>普通选择器</h2><h3 id="按ID查找"><a href="#按ID查找" class="headerlink" title="按ID查找"></a>按ID查找</h3><p>如果某个DOM节点有id属性，利用jQuery查找如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查找&lt;div id=&quot;abc&quot;&gt;:</span></span><br><span class="line"><span class="keyword">var</span> div = $(<span class="string">&#x27;#abc&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>，#abc以#开头。返回的对象是jQuery对象。</p>
+<p>什么是jQuery对象？jQuery对象类似数组，它的每个元素都是一个引用了DOM节点的对象。</p>
+<p>以上面的查找为例，如果id为abc的<code>&lt;div&gt;</code>存在，返回的jQuery对象如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;abc&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>]</span><br></pre></td></tr></table></figure>
+<p>如果id为abc的<code>&lt;div&gt;</code>不存在，返回的jQuery对象如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+<p>总之jQuery的选择器不会返回undefined或者null，这样的好处是你不必在下一行判断if (div === undefined)。</p>
+<p>jQuery对象和DOM对象之间可以互相转化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = $(<span class="string">&#x27;#abc&#x27;</span>); <span class="comment">// jQuery对象</span></span><br><span class="line"><span class="keyword">var</span> divDom = div.get(<span class="number">0</span>); <span class="comment">// 假设存在div，获取第1个DOM元素</span></span><br><span class="line"><span class="keyword">var</span> another = $(divDom); <span class="comment">// 重新把DOM包装为jQuery对象</span></span><br></pre></td></tr></table></figure>
+<h3 id="按tag查找"><a href="#按tag查找" class="headerlink" title="按tag查找"></a>按tag查找</h3><p>按tag查找只需要写上tag名称就可以了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ps = $(<span class="string">&#x27;p&#x27;</span>); <span class="comment">// 返回所有&lt;p&gt;节点</span></span><br><span class="line">ps.length; <span class="comment">// 数一数页面有多少个&lt;p&gt;节点</span></span><br></pre></td></tr></table></figure>
+<h3 id="按class查找"><a href="#按class查找" class="headerlink" title="按class查找"></a>按class查找</h3><p>按class查找注意在class名称前加一个.：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = $(<span class="string">&#x27;.red&#x27;</span>); <span class="comment">// 所有节点包含`class=&quot;red&quot;`都将返回</span></span><br><span class="line"><span class="comment">// 例如:</span></span><br><span class="line"><span class="comment">// &lt;div class=&quot;red&quot;&gt;...&lt;/div&gt;</span></span><br><span class="line"><span class="comment">// &lt;p class=&quot;green red&quot;&gt;...&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通常很多节点有多个class，我们可以查找同时包含red和green的节点：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = $(<span class="string">&#x27;.red.green&#x27;</span>); <span class="comment">// 注意没有空格！</span></span><br><span class="line"><span class="comment">// 符合条件的节点：</span></span><br><span class="line"><span class="comment">// &lt;div class=&quot;red green&quot;&gt;...&lt;/div&gt;</span></span><br><span class="line"><span class="comment">// &lt;div class=&quot;blue green red&quot;&gt;...&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="按属性查找"><a href="#按属性查找" class="headerlink" title="按属性查找"></a>按属性查找</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> email = $(<span class="string">&#x27;[name=email]&#x27;</span>); <span class="comment">// 找出&lt;??? name=&quot;email&quot;&gt;</span></span><br><span class="line"><span class="keyword">var</span> passwordInput = $(<span class="string">&#x27;[type=password]&#x27;</span>); <span class="comment">// 找出&lt;??? type=&quot;password&quot;&gt;</span></span><br><span class="line"><span class="keyword">var</span> a = $(<span class="string">&#x27;[items=&quot;A B&quot;]&#x27;</span>); <span class="comment">// 找出&lt;??? items=&quot;A B&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当属性的值包含空格等特殊字符时，需要用双引号括起来。</p>
+<p>按属性查找还可以使用<strong>前缀查找</strong>或者<strong>后缀查找</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> icons = $(<span class="string">&#x27;[name^=icon]&#x27;</span>); <span class="comment">// 找出所有name属性值以icon开头的DOM</span></span><br><span class="line"><span class="comment">// 例如: name=&quot;icon-1&quot;, name=&quot;icon-2&quot;</span></span><br><span class="line"><span class="keyword">var</span> names = $(<span class="string">&#x27;[name$=with]&#x27;</span>); <span class="comment">// 找出所有name属性值以with结尾的DOM</span></span><br><span class="line"><span class="comment">// 例如: name=&quot;startswith&quot;, name=&quot;endswith&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这个方法尤其适合通过class属性查找，且不受class包含多个名称的影响：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> icons = $(<span class="string">&#x27;[class^=&quot;icon-&quot;]&#x27;</span>); <span class="comment">// 找出所有class包含至少一个以`icon-`开头的DOM</span></span><br><span class="line"><span class="comment">// 例如: class=&quot;icon-clock&quot;, class=&quot;abc icon-home&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="组合查找"><a href="#组合查找" class="headerlink" title="组合查找"></a>组合查找</h3><p>如果我们查找<code>$(&#39;[name=email]&#39;)</code>，很可能把表单外的<code>&lt;div name=&quot;email&quot;&gt;</code>也找出来，但我们只希望查找<code>&lt;input&gt;</code>，就可以这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> emailInput = $(<span class="string">&#x27;input[name=email]&#x27;</span>); <span class="comment">// 不会找出&lt;div name=&quot;email&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同样的，根据tag和class来组合查找也很常见：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tr = $(<span class="string">&#x27;tr.red&#x27;</span>); <span class="comment">// 找出&lt;tr class=&quot;red ...&quot;&gt;...&lt;/tr&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="多项选择器"><a href="#多项选择器" class="headerlink" title="多项选择器"></a>多项选择器</h3><p>多项选择器就是把多个选择器用,组合起来一块选：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;p,div&#x27;</span>); <span class="comment">// 把&lt;p&gt;和&lt;div&gt;都选出来</span></span><br><span class="line">$(<span class="string">&#x27;p.red,p.green&#x27;</span>); <span class="comment">// 把&lt;p class=&quot;red&quot;&gt;和&lt;p class=&quot;green&quot;&gt;都选出来</span></span><br></pre></td></tr></table></figure>
+<p>要注意的是，选出来的元素是按照它们在HTML中出现的顺序排列的，而且不会有重复元素。</p>
+<h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p>如果两个DOM元素具有层级关系，就可以用$(‘ancestor descendant’)来选择，层级之间用空格隔开。例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- HTML结构 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;testing&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;lang&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;lang-javascript&quot;</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;lang-python&quot;</span>&gt;</span>Python<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;lang-lua&quot;</span>&gt;</span>Lua<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要选出JavaScript，可以用层级选择器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul.lang li.lang-javascript&#x27;</span>); <span class="comment">// [&lt;li class=&quot;lang-javascript&quot;&gt;JavaScript&lt;/li&gt;]</span></span><br><span class="line">$(<span class="string">&#x27;div.testing li.lang-javascript&#x27;</span>); <span class="comment">// [&lt;li class=&quot;lang-javascript&quot;&gt;JavaScript&lt;/li&gt;]</span></span><br></pre></td></tr></table></figure>
+<p>要选择所有的<code>&lt;li&gt;</code>节点，用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul.lang li&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>多层选择也是允许的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;form.test p input&#x27;</span>); <span class="comment">// 在form表单选择被&lt;p&gt;包含的&lt;input&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p>子选择器<code>$(&#39;parent&gt;child&#39;)</code>类似层级选择器，但是限定了层级关系必须是父子关系，就是<code>&lt;child&gt;</code>节点必须是<code>&lt;parent&gt;</code>节点的直属子节点。还是以上面的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul.lang&gt;li.lang-javascript&#x27;</span>); <span class="comment">// 可以选出[&lt;li class=&quot;lang-javascript&quot;&gt;JavaScript&lt;/li&gt;]</span></span><br><span class="line">$(<span class="string">&#x27;div.testing&gt;li.lang-javascript&#x27;</span>); <span class="comment">// [], 无法选出，因为&lt;div&gt;和&lt;li&gt;不构成父子关系</span></span><br></pre></td></tr></table></figure>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>过滤器一般不单独使用，它通常附加在选择器上，帮助我们更精确地定位元素。观察过滤器的效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;ul.lang li&#x27;</span>); <span class="comment">// 选出JavaScript、Python和Lua 3个节点</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">&#x27;ul.lang li:first-child&#x27;</span>); <span class="comment">// 仅选出JavaScript</span></span><br><span class="line">$(<span class="string">&#x27;ul.lang li:last-child&#x27;</span>); <span class="comment">// 仅选出Lua</span></span><br><span class="line">$(<span class="string">&#x27;ul.lang li:nth-child(2)&#x27;</span>); <span class="comment">// 选出第N个元素，N从1开始</span></span><br><span class="line">$(<span class="string">&#x27;ul.lang li:nth-child(even)&#x27;</span>); <span class="comment">// 选出序号为偶数的元素</span></span><br><span class="line">$(<span class="string">&#x27;ul.lang li:nth-child(odd)&#x27;</span>); <span class="comment">// 选出序号为奇数的元素</span></span><br></pre></td></tr></table></figure>
+<h3 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h3><p>针对表单元素，jQuery还有一组特殊的选择器：</p>
+<p>:input：可以选择<code>&lt;input&gt;，&lt;textarea&gt;，&lt;select&gt;和&lt;button&gt;</code>；</p>
+<p>:file：可以选择<code>&lt;input type=&quot;file&quot;&gt;</code>，和input<code>[type=file]</code>一样；</p>
+<p>:checkbox：可以选择复选框，和input<code>[type=checkbox]</code>一样；</p>
+<p>:radio：可以选择单选框，和input<code>[type=radio]</code>一样；</p>
+<p>:focus：可以选择当前输入焦点的元素，例如把光标放到一个<code>&lt;input&gt;</code>上，用$(‘input:focus’)就可以选出；</p>
+<p>:checked：选择当前勾上的单选框和复选框，用这个选择器可以立刻获得用户选择的项目，如<code>$(&#39;input[type=radio]:checked&#39;)</code>；</p>
+<p>:enabled：可以选择可以正常输入的<code>&lt;input&gt;、&lt;select&gt;</code> 等，也就是没有灰掉的输入；</p>
+<p>:disabled：和:enabled正好相反，选择那些不能输入的。</p>
+<p>此外，jQuery还有很多有用的选择器，例如，选出可见的或隐藏的元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div:visible&#x27;</span>); <span class="comment">// 所有可见的div</span></span><br><span class="line">$(<span class="string">&#x27;div:hidden&#x27;</span>); <span class="comment">// 所有隐藏的div</span></span><br></pre></td></tr></table></figure>
+<h2 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h2><p>通常情况下选择器可以直接定位到我们想要的元素，但是，当我们拿到一个jQuery对象后，还可以以这个对象为基准，进行查找和过滤。</p>
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><p>最常见的查找是在某个节点的所有子节点中查找，使用find()方法，它本身又接收一个任意的选择器。例如如下的HTML结构：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;lang&quot;</span>&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;js dy&quot;</span>&gt;JavaScript&lt;/li&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;dy&quot;</span>&gt;Python&lt;/li&gt;</span><br><span class="line">    &lt;li id=<span class="string">&quot;swift&quot;</span>&gt;Swift&lt;/li&gt;</span><br><span class="line">    &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;dy&quot;</span>&gt;Scheme&lt;/li&gt;</span><br><span class="line">    &lt;li name=<span class="string">&quot;haskell&quot;</span>&gt;Haskell&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>用<code>find()</code>查找：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ul = $(<span class="string">&#x27;ul.lang&#x27;</span>); <span class="comment">// 获得&lt;ul&gt;</span></span><br><span class="line"><span class="keyword">var</span> dy = ul.find(<span class="string">&#x27;.dy&#x27;</span>); <span class="comment">// 获得JavaScript, Python, Scheme</span></span><br><span class="line"><span class="keyword">var</span> swf = ul.find(<span class="string">&#x27;#swift&#x27;</span>); <span class="comment">// 获得Swift</span></span><br><span class="line"><span class="keyword">var</span> hsk = ul.find(<span class="string">&#x27;[name=haskell]&#x27;</span>); <span class="comment">// 获得Haskell</span></span><br></pre></td></tr></table></figure>
+<p>如果要从当前节点开始向上查找，使用<code>parent()</code>方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> swf = $(<span class="string">&#x27;#swift&#x27;</span>); <span class="comment">// 获得Swift</span></span><br><span class="line"><span class="keyword">var</span> parent = swf.parent(); <span class="comment">// 获得Swift的上层节点&lt;ul&gt;</span></span><br><span class="line"><span class="keyword">var</span> a = swf.parent(<span class="string">&#x27;.red&#x27;</span>); <span class="comment">// 获得Swift的上层节点&lt;ul&gt;，同时传入过滤条件。如果ul不符合条件，返回空jQuery对象</span></span><br></pre></td></tr></table></figure>
+<p>对于位于同一层级的节点，可以通过<code>next()</code>和<code>prev()</code>方法，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> swift = $(<span class="string">&#x27;#swift&#x27;</span>);</span><br><span class="line"></span><br><span class="line">swift.next(); <span class="comment">// Scheme</span></span><br><span class="line">swift.next(<span class="string">&#x27;[name=haskell]&#x27;</span>); <span class="comment">// 空的jQuery对象，因为Swift的下一个元素Scheme不符合条件[name=haskell]</span></span><br><span class="line"></span><br><span class="line">swift.prev(); <span class="comment">// Python</span></span><br><span class="line">swift.prev(<span class="string">&#x27;.dy&#x27;</span>); <span class="comment">// Python，因为Python同时符合过滤器条件.dy</span></span><br></pre></td></tr></table></figure>
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><p><code>filter()</code>方法可以过滤掉不符合选择器条件的节点：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> langs = $(<span class="string">&#x27;ul.lang li&#x27;</span>); <span class="comment">// 拿到JavaScript, Python, Swift, Scheme和Haskell</span></span><br><span class="line"><span class="keyword">var</span> a = langs.filter(<span class="string">&#x27;.dy&#x27;</span>); <span class="comment">// 拿到JavaScript, Python, Scheme</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JQuery/" rel="tag"><i class="fa fa-tag"></i> JQuery</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/08/javascript/Javascript-%E6%B5%8F%E8%A7%88%E5%99%A83/" rel="prev" title="Javascript 浏览器3">
+      <i class="fa fa-chevron-left"></i> Javascript 浏览器3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/09/vue_js/Vue-%E8%B5%B7%E6%AD%A5/" rel="next" title="Vue 起步">
+      Vue 起步 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">$符号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">普通选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89ID%E6%9F%A5%E6%89%BE"><span class="nav-number">2.1.1.</span> <span class="nav-text">按ID查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89tag%E6%9F%A5%E6%89%BE"><span class="nav-number">2.1.2.</span> <span class="nav-text">按tag查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89class%E6%9F%A5%E6%89%BE"><span class="nav-number">2.1.3.</span> <span class="nav-text">按class查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%B1%9E%E6%80%A7%E6%9F%A5%E6%89%BE"><span class="nav-number">2.1.4.</span> <span class="nav-text">按属性查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E6%9F%A5%E6%89%BE"><span class="nav-number">2.1.5.</span> <span class="nav-text">组合查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.1.6.</span> <span class="nav-text">多项选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E7%BA%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">层级选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.2.1.</span> <span class="nav-text">子选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E7%9B%B8%E5%85%B3"><span class="nav-number">2.2.3.</span> <span class="nav-text">表单相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%92%8C%E8%BF%87%E6%BB%A4"><span class="nav-number">2.3.</span> <span class="nav-text">查找和过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE"><span class="nav-number">2.3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4"><span class="nav-number">2.3.2.</span> <span class="nav-text">过滤</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ywy144"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">ywy144</p>
+  <div class="site-description" itemprop="description">learning</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ywy144" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ywy144" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/ywy144@gmail.com" title="E-Mail → ywy144@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+      
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tag Cloud</h3>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JQuery/" rel="tag">JQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="tag">Javascript基本语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/" rel="tag">OOP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/" rel="tag">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue%E5%AE%9E%E4%BE%8B/" rel="tag">Vue实例</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html%E7%B1%BB/" rel="tag">html类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html%E8%A1%A8%E5%8D%95/" rel="tag">html表单</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map/" rel="tag">map</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/" rel="tag">set</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%87%BD%E6%95%B0/" rel="tag">函数</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/" rel="tag">动态内存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%98%E9%87%8F/" rel="tag">变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/" rel="tag">响应式编程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B/" rel="tag">基本内置类型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AF%B9%E8%B1%A1/" rel="tag">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E7%BB%84/" rel="tag">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" rel="tag">智能指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%AF%B9%E8%B1%A1/" rel="tag">标准对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/" rel="tag">模板语法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a><span class="tag-list-count">2</span></li></ul>
+            </canvas>
+        </div>
+    </div>
+    
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ywy144</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
